@@ -9,11 +9,21 @@
   <body>
     Preferences
     <div>
-      <input type="checkbox" name="sound" id="sound" />
+      <input
+        type="checkbox"
+        id="sound"
+        ?checked="${data.sound}"
+        @change="${eventHandlers.toggleSound}"
+      />
       <label for="sound">Sound</label>
     </div>
     <div>
-      <input type="checkbox" name="speak" id="speak" />
+      <input
+        type="checkbox"
+        id="speak"
+        ?checked="${data.speak}"
+        @change="${eventHandlers.toggleSpeak}"
+      />
       <label for="speak">Speak</label>
     </div>
   </body>

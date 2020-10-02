@@ -20,7 +20,18 @@ import Page from '/page.js';
 
 const page = new Page({
   data: {
+    sound: true,
+    speak: true,
+  },
 
+  eventHandlers: {
+    toggleSound: (e) => {
+      page.setData({ sound: e.target.checked });
+    },
+
+    toggleSpeak: (e) => {
+      page.setData({ speak: e.target.checked });
+    },
   },
 
   onLoad: () => {},

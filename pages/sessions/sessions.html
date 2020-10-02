@@ -7,11 +7,15 @@
     <script type="module" src="sessions.js"></script>
   </head>
   <body>
-    <div>Timers:
+    <div>
+      Timers:
       <ul>
-        ${data.timers.map((timer) => {
-          return html`<li>Rounds: ${timer.rounds}, Active: ${timer.active}, Resting: ${timer.resting}</li>`;
-        })}
+        ${data.timers.map((timer) => { return html`
+        <li>
+          Rounds: ${timer.rounds}, Active: ${timer.active}, Resting:
+          ${timer.resting}
+        </li>
+        `; })}
       </ul>
     </div>
   </body>

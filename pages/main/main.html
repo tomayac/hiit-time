@@ -8,8 +8,9 @@
     <script type="module" src="main.js"></script>
   </head>
   <body>
-    <button @click=${data.start} type="button">Start</button>
-    <button @click=${data.reset} type="button">Reset</button>
+    <button @click="${eventHandlers.start}" type="button">Start</button>
+    <button @click="${eventHandlers.pause}" type="button">Pause</button>
+    <button @click="${eventHandlers.reset}" type="button">Reset</button>
     <div>Rounds: <span id="rounds">${data.rounds}</span></div>
     <div>Active Time: <span id="active">${data.active}</span></div>
     <div>Resting Time: <span id="resting">${data.resting}</span></div>

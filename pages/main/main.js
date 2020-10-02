@@ -18,61 +18,68 @@
 
 import Page from '/page.js';
 
-let interval = null;
-let wasReset = false;
-
-const start = async () => {
-  reset();
-  const timer = page.getGlobalData('sessions').timers[0];
-  wasReset = false;
-
-  const countDown = (duration, elem) => {
-    return new Promise((resolve) => {
-      let passed = 0;
-      interval = setInterval(() => {
-        passed += 1;
-        if (passed === duration || wasReset) {
-          page.setData({
-            [elem]: 0,
-          });
-          clearInterval(interval);
-          return resolve();
-        }
-        page.setData({
-          [elem]: duration - passed,
-        });
-      }, 1000);
-    });
-  };
-
-  for (let i = 0; i < timer.rounds; i++) {
-    page.setData({ rounds: timer.rounds - i });
-    await countDown(timer.active, 'active');
-    await countDown(timer.resting, 'resting');
-  }
-};
-
-const reset = () => {
-  const timer = page.getGlobalData('sessions').timers[0];
-  page.setData(timer);
-  wasReset = true;
-  if (interval) {
-    clearInterval(interval);
-    interval = null;
-  }
-};
-
 const page = new Page({
-  data: {
-    start: start,
-    reset: reset,
+  data: {},
+
+  shared: {
+    interval: null,
+    wasReset: false,
   },
 
-  onLoad: () => {
+  eventHandlers: {
+    start: async () => {
+      page.setData({ timers: page.getGlobalData('sessions').timers });
+      page.eventHandlers.reset();
+      page.shared.wasReset = false;
 
+      const countDown = (duration, elem) => {
+        return new Promise((resolve) => {
+          let passed = 0;
+          page.shared.interval = setInterval(() => {
+            if (page.shared.paused) {
+              return;
+            }
+            passed += 1;
+            if (passed === duration || page.shared.wasReset) {
+              page.setData({
+                [elem]: 0,
+              });
+              clearInterval(page.shared.interval);
+              return resolve();
+            }
+            page.setData({
+              [elem]: duration - passed,
+            });
+          }, 1000);
+        });
+      };
+
+      const activeTimer = page.getData('timers')[0];
+      for (let i = 0; i < activeTimer.rounds; i++) {
+        page.setData({ rounds: activeTimer.rounds - i });
+        await countDown(activeTimer.active, 'active');
+        await countDown(activeTimer.resting, 'resting');
+      }
+    },
+
+    pause: () => {
+      page.shared.paused = page.shared.paused ? false : true;
+    },
+
+    reset: () => {
+      const activeTimer = page.getData('timers')
+        ? page.getData('timers')[0]
+        : page.getGlobalData('sessions').timers[0];
+      page.setData(activeTimer);
+      page.shared.wasReset = true;
+      if (page.shared.interval) {
+        clearInterval(page.shared.interval);
+        page.shared.interval = null;
+      }
+    },
   },
 
-  onShow: () => {
+  onLoad: () => {},
 
-  },
+  onShow: () => {},
 });

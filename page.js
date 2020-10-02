@@ -17,6 +17,7 @@
 // @license © 2020 Google LLC. Licensed under the Apache License, Version 2.0.
 
 import DataStore from '/datastore.js';
+// eslint-disable-next-line no-unused-vars
 import { html, render } from '/node_modules/lit-html/lit-html.js';
 
 const dataStore = new DataStore();
@@ -34,16 +35,21 @@ class Page {
    */
   constructor(options) {
     this.name = window.name;
+
     if (options.data) {
       const data = dataStore.get();
       data[this.name] = options.data;
       dataStore.set(data);
-      this.data = options.data;
-    } else {
-      this.data = {};
     }
-    const innerHTML = document.body.innerHTML.replace('&gt;', '>').replace('&lt;', '<');
-    this.template = (data) => eval('html`' + innerHTML + '`');
+
+    this.shared = options.shared || {};
+
+    this.eventHandlers = options.eventHandlers || {};
+
+    const innerHTML = document.body.innerHTML
+      .replace('&gt;', '>')
+      .replace('&lt;', '<');
+    this.template = (data, eventHandlers) => eval('html`' + innerHTML + '`');
 
     this.onLoad = options.onLoad || (() => {});
     this.onUnload = options.onUnload || (() => {});
@@ -78,8 +84,7 @@ class Page {
    * @memberof Page
    */
   renderPage() {
-    const data = this.getData();
-    render(this.template(data), document.body);
+    render(this.template(this.getData(), this.eventHandlers), document.body);
   }
 
   /**
@@ -93,24 +98,23 @@ class Page {
     if (newData) {
       data[this.name] = {
         ...data[this.name],
-        ...newData
+        ...newData,
       };
       dataStore.set(data);
     }
-    this.data = data;
     this.renderPage();
   }
 
   /**
    *
    *
+   * @param {boolean} [key=false]
    * @return {object}
    * @memberof Page
    */
-  getData() {
+  getData(key = false) {
     const data = dataStore.get();
-    this.data = data[this.name];
-    return this.data;
+    return key ? data[this.name][key] : data[this.name];
   }
 
   /**
@@ -122,7 +126,6 @@ class Page {
    */
   getGlobalData(key = false) {
     const data = dataStore.get();
-    this.data = data[this.name];
     return key ? data[key] : data;
   }
 }
