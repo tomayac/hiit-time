@@ -1,0 +1,45 @@
+{
+  "name": "hiit-time",
+  "version": "1.0.0",
+  "description": "HIIT time application",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx http-server",
+    "lint": "npx eslint . --ext .js,.mjs --fix --ignore-pattern dist/",
+    "fix": "npx prettier --write ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tomayac/hiit-time.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tomayac/hiit-time/issues"
+  },
+  "homepage": "https://github.com/tomayac/hiit-time#readme",
+  "keywords": [
+    "hiit"
+  ],
+  "author": "Thomas Steiner (tomac@google.com)",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "http-server": "^0.12.3",
+    "prettier": "^2.1.2",
+    "eslint": "^7.10.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-config-prettier": "^6.12.0",
+    "terser": "^5.3.3"
+  },
+  "eslintConfig": {
+    "parserOptions": {
+      "ecmaVersion": 2020,
+      "sourceType": "module"
+    },
+    "extends": [
+      "google",
+      "prettier"
+    ]
+  },
+  "dependencies": {
+    "lit-html": "^1.2.1"
+  }
+}

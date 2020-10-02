@@ -1,0 +1,35 @@
+body {
+  display: grid;
+  grid-template-areas:
+    'navbar'
+    'main'
+    'tabbar';
+  grid-template-rows:
+    auto /* navbar */
+    1fr /* main */
+    auto; /* tabbar */
+}
+
+iframe {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+#navbar,
+#tabbar {
+  height: 49pt;
+  user-select: none;
+}
+
+#pages {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+}
+
+#pages iframe {
+  display: none;
+}

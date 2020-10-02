@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../../common.css" />
+    <link rel="stylesheet" href="main.css" />
+    <script type="module" src="main.js"></script>
+  </head>
+  <body>
+    <button @click=${data.start} type="button">Start</button>
+    <button @click=${data.reset} type="button">Reset</button>
+    <div>Rounds: <span id="rounds">${data.rounds}</span></div>
+    <div>Active Time: <span id="active">${data.active}</span></div>
+    <div>Resting Time: <span id="resting">${data.resting}</span></div>
+  </body>
+</html>

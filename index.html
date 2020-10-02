@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>HIIT Time</title>
+    <script type="module" src="/index.js"></script>
+
+    <link rel="stylesheet" href="/common.css" />
+    <link rel="stylesheet" href="/index.css" />
+
+    <link rel="prefetch" href="/navbar/navbar.html" as="document" />
+    <link rel="prefetch" href="/tabbar/tabbar.html" as="document" />
+
+    <link rel="preload" href="/navbar/navbar.html" as="document" />
+    <link rel="preload" href="/tabbar/tabbar.html" as="document" />
+
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewbox='0 0 16 16'%3E%3Ctext text-anchor='middle' x='50%25' y='75%25'%3E👟%3C/text%3E%3C/svg%3E"
+    />
+  </head>
+  <body>
+    <iframe
+      id="navbar"
+      name="navbar"
+      src="/navbar/navbar.html"
+      scrolling="no"
+    ></iframe>
+    <div id="pages">
+      <iframe
+        id="main"
+        name="main"
+        src="/pages/main/main.html"
+        scrolling="no"
+      ></iframe>
+      <iframe
+        id="sessions"
+        name="sessions"
+        src="/pages/sessions/sessions.html"
+        scrolling="no"
+      ></iframe>
+      <iframe
+        id="preferences"
+        name="preferences"
+        src="/pages/preferences/preferences.html"
+        scrolling="no"
+      ></iframe>
+    </div>
+    <iframe id="tabbar" src="/tabbar/tabbar.html" scrolling="no"></iframe>
+  </body>
+</html>

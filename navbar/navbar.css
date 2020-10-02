@@ -1,0 +1,12 @@
+body {
+  background-color: ButtonFace;
+}
+
+h1 {
+  color: CanvasText;
+  display: inline-block;
+}
+
+#title {
+  text-transform: capitalize;
+}
