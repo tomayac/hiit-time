@@ -64,6 +64,21 @@ anchors.forEach((anchor) => {
   anchor.addEventListener('click', onAnchorClick);
 });
 
+const navigateToHash = () => {
+  const hash = topWindowDocument.location.hash.substr(1);
+  if (hash && pageNames.includes(hash)) {
+    showView(hash);
+  } else {
+    showView('main');
+  }
+  anchors.forEach((anchor) => {
+    if (anchor.target === hash) {
+      return anchor.classList.add('highlight');
+    }
+    anchor.classList.remove('highlight');
+  });
+};
+
 // Restore state on load, or load default state.
 Promise.all(
   pages.map((page) => {
@@ -77,20 +92,7 @@ Promise.all(
     });
   })
 ).then(() => {
-  const hash = topWindowDocument.location.hash.substr(1);
-  if (hash && pageNames.includes(hash)) {
-    showView(hash);
-  } else {
-    showView('main');
-  }
-  anchors.forEach((anchor) => {
-    if (anchor.target === hash) {
-      return anchor.classList.add('highlight');
-    }
-    anchor.classList.remove('highlight');
-  });
+  navigateToHash();
 });
 
-window.top.addEventListener('popstate', (e) => {
-  console.log(window.top.location.hash);
-});
+window.top.addEventListener('popstate', navigateToHash);

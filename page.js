@@ -124,9 +124,22 @@ class Page {
    * @return {object}
    * @memberof Page
    */
-  getGlobalData(key = false) {
+  async getGlobalData(key = false) {
+    if (key) {
+      const page = window.top.document.querySelector(`#pages iframe[name="${key}"]`);
+      return new Promise((resolve) => {
+        if (page.contentDocument.readyState === 'complete') {
+          const data = dataStore.get();
+          return resolve(data[key]);
+        }
+        page.addEventListener('load', () => {
+          const data = dataStore.get();
+          resolve(data[key]);
+        });
+      });
+    }
     const data = dataStore.get();
-    return key ? data[key] : data;
+    return data;
   }
 }
 

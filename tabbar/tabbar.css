@@ -9,11 +9,12 @@ a {
   width: calc(100% / 3);
   height: 100%;
   border: solid 1px #000;
-  display: inline-block;
-  text-align: center;
   text-decoration: none;
   color: ButtonText;
   background-color: ButtonFace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .highlight {

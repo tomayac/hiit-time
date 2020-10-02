@@ -28,8 +28,8 @@ const page = new Page({
 
   eventHandlers: {
     start: async () => {
-      page.setData({ timers: page.getGlobalData('sessions').timers });
-      page.eventHandlers.reset();
+      page.setData({ timers: await page.getGlobalData('sessions').timers });
+      await page.eventHandlers.reset();
       page.shared.wasReset = false;
 
       const countDown = (duration, elem) => {
@@ -54,7 +54,7 @@ const page = new Page({
         });
       };
 
-      const activeTimer = page.getData('timers')[0];
+      const activeTimer = page.getData('activeTimer');
       for (let i = 0; i < activeTimer.rounds; i++) {
         page.setData({ rounds: activeTimer.rounds - i });
         await countDown(activeTimer.active, 'active');
@@ -66,11 +66,15 @@ const page = new Page({
       page.shared.paused = page.shared.paused ? false : true;
     },
 
-    reset: () => {
-      const activeTimer = page.getData('timers')
-        ? page.getData('timers')[0]
-        : page.getGlobalData('sessions').timers[0];
+    reset: async () => {
+      const timers = page.getData('timers')
+        ? page.getData('timers')
+        : (await page.getGlobalData('sessions')).timers;
+      page.setData({timers: timers});
+      const activeTimer = timers[0];
+      // Shortcut to reset `active`, `resting`, and `rounds`.
       page.setData(activeTimer);
+      page.setData({activeTimer: activeTimer});
       page.shared.wasReset = true;
       if (page.shared.interval) {
         clearInterval(page.shared.interval);
@@ -79,7 +83,9 @@ const page = new Page({
     },
   },
 
-  onLoad: () => {},
+  onLoad: async () => {
+    await page.eventHandlers.reset();
+  },
 
   onShow: () => {},
 });
