@@ -8,11 +8,16 @@
     <script type="module" src="main.js"></script>
   </head>
   <body>
-    <button @click="${eventHandlers.start}" type="button">Start</button>
-    <button @click="${eventHandlers.pause}" type="button">Pause</button>
-    <button @click="${eventHandlers.reset}" type="button">Reset</button>
+    <button @click=${eventHandlers.start} type="button">Start</button>
+    <button @click=${eventHandlers.pause} type="button">Pause</button>
+    <button @click=${eventHandlers.reset} type="button">Reset</button>
     <div>Rounds: <span id="rounds">${data.rounds}</span></div>
+    <sl-progress-ring percentage=${Math.floor(data.rounds/data.activeTimer.rounds*100)}>${data.rounds}</sl-progress-ring>
+
     <div>Active Time: <span id="active">${data.active}</span></div>
+    <sl-progress-ring percentage=${Math.floor(data.active/data.activeTimer.active*100)}>${data.active}</sl-progress-ring>
+
     <div>Resting Time: <span id="resting">${data.resting}</span></div>
+    <sl-progress-ring percentage=${Math.floor(data.resting/data.activeTimer.resting*100)}>${data.resting}</sl-progress-ring>
   </body>
 </html>

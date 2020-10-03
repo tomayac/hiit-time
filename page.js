@@ -126,7 +126,9 @@ class Page {
    */
   async getGlobalData(key = false) {
     if (key) {
-      const page = window.top.document.querySelector(`#pages iframe[name="${key}"]`);
+      const page = window.top.document.querySelector(
+        `#pages iframe[name="${key}"]`
+      );
       return new Promise((resolve) => {
         if (page.contentDocument.readyState === 'complete') {
           const data = dataStore.get();

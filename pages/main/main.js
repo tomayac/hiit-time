@@ -17,9 +17,16 @@
 // @license © 2020 Google LLC. Licensed under the Apache License, Version 2.0.
 
 import Page from '/page.js';
+import '/node_modules/@shoelace-style/shoelace/dist/shoelace/shoelace.esm.js';
 
 const page = new Page({
-  data: {},
+  data: {
+    activeTimer: {
+      rounds: 0,
+      active: 0,
+      resting: 0,
+    },
+  },
 
   shared: {
     interval: null,
@@ -27,7 +34,8 @@ const page = new Page({
   },
 
   eventHandlers: {
-    start: async () => {
+    async start() {
+      page.shared.paused = false;
       page.setData({ timers: await page.getGlobalData('sessions').timers });
       await page.eventHandlers.reset();
       page.shared.wasReset = false;
@@ -62,19 +70,19 @@ const page = new Page({
       }
     },
 
-    pause: () => {
+    pause() {
       page.shared.paused = page.shared.paused ? false : true;
     },
 
-    reset: async () => {
+    async reset() {
       const timers = page.getData('timers')
         ? page.getData('timers')
         : (await page.getGlobalData('sessions')).timers;
-      page.setData({timers: timers});
+      page.setData({ timers: timers });
       const activeTimer = timers[0];
       // Shortcut to reset `active`, `resting`, and `rounds`.
       page.setData(activeTimer);
-      page.setData({activeTimer: activeTimer});
+      page.setData({ activeTimer: activeTimer });
       page.shared.wasReset = true;
       if (page.shared.interval) {
         clearInterval(page.shared.interval);
@@ -83,9 +91,9 @@ const page = new Page({
     },
   },
 
-  onLoad: async () => {
+  async onLoad() {
     await page.eventHandlers.reset();
   },
 
-  onShow: () => {},
+  onShow() {},
 });

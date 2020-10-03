@@ -25,16 +25,16 @@ const page = new Page({
   },
 
   eventHandlers: {
-    toggleSound: (e) => {
+    toggleSound(e) {
       page.setData({ sound: e.target.checked });
     },
 
-    toggleSpeak: (e) => {
+    toggleSpeak(e) {
       page.setData({ speak: e.target.checked });
     },
   },
 
-  onLoad: () => {},
+  onLoad() {},
 
-  onShow: () => {},
+  onShow() {},
 });

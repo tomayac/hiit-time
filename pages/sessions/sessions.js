@@ -8,5 +8,5 @@ new Page({
     ],
   },
 
-  onShow: () => {},
+  onShow() {},
 });
