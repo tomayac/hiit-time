@@ -2,7 +2,7 @@
   "name": "hiit-time",
   "version": "1.0.0",
   "description": "HIIT time application",
-  "main": "index.js",
+  "workout": "index.js",
   "scripts": {
     "start": "npx http-server",
     "lint": "npx eslint . --ext .js,.mjs --fix --ignore-pattern dist/",

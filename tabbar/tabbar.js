@@ -69,7 +69,7 @@ const navigateToHash = () => {
   if (hash && pageNames.includes(hash)) {
     showView(hash);
   } else {
-    showView('main');
+    showView('workout');
   }
   anchors.forEach((anchor) => {
     if (anchor.target === hash) {

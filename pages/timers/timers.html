@@ -4,16 +4,16 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="/common.css" />
-    <script type="module" src="sessions.js"></script>
+    <script type="module" src="timers.js"></script>
   </head>
   <body>
     <div>
-      Timers:
       <ul>
         ${data.timers.map((timer) => { return html`
         <li>
           Sets: ${timer.sets}, Active: ${timer.active}, Resting:
-          ${timer.resting}
+          ${timer.resting} (Duration:
+          ${Math.ceil((timer.sets*(timer.active+timer.resting))/60)}min)
         </li>
         `; })}
       </ul>

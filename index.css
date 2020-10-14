@@ -2,11 +2,11 @@ body {
   display: grid;
   grid-template-areas:
     'navbar'
-    'main'
+    'workout'
     'tabbar';
   grid-template-rows:
     auto /* navbar */
-    1fr /* main */
+    1fr /* workout */
     auto; /* tabbar */
 }
 

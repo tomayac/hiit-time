@@ -19,6 +19,45 @@
 import Page from '/page.js';
 import '/node_modules/@shoelace-style/shoelace/dist/shoelace/shoelace.esm.js';
 
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+/**
+ *
+ *
+ * @param {integer} duration Duration of the tone in milliseconds. Default is 500
+ * @param {double} frequency Frequency of the tone in hertz. default is 440
+ * @param {integer} volume Volume of the tone. Default is 1, off is 0.
+ * @param {string} type Type of tone. Possible values are sine, square, sawtooth, triangle, and custom. Default is sine.
+ * @param {function} callback Callback to use on end of tone
+ */
+const beep = (duration, frequency, volume, type, callback) => {
+  const audioCtx = new (window.AudioContext ||
+    window.webkitAudioContext ||
+    window.audioContext)();
+
+  const oscillator = audioCtx.createOscillator();
+  const gainNode = audioCtx.createGain();
+
+  oscillator.connect(gainNode);
+  gainNode.connect(audioCtx.destination);
+
+  if (volume) {
+    gainNode.gain.value = volume;
+  }
+  if (frequency) {
+    oscillator.frequency.value = frequency;
+  }
+  if (type) {
+    oscillator.type = type;
+  }
+  if (callback) {
+    oscillator.onended = callback;
+  }
+
+  oscillator.start(audioCtx.currentTime);
+  oscillator.stop(audioCtx.currentTime + (duration || 500) / 1000);
+};
+
 const page = new Page({
   data: {
     activeTimer: {
@@ -35,9 +74,26 @@ const page = new Page({
   },
 
   eventHandlers: {
+    async selectTimer(e) {
+      const selectedOption = e.target.options[e.target.options.selectedIndex];
+      const { sets, active, resting } = selectedOption.dataset;
+      const timers = page.getData('timers');
+      const activeTimer = timers.find(
+        (timer) =>
+          timer.sets === parseInt(sets, 10) &&
+          timer.active === parseInt(active, 10) &&
+          timer.resting === parseInt(resting, 10)
+      );
+      page.setData({ activeTimer: activeTimer });
+      // Shortcut to set `active`, `resting`, and `sets` individually.
+      page.setData(activeTimer);
+      await page.eventHandlers.reset();
+    },
+
     async start() {
       page.shared.paused = false;
-      page.setData({ timers: await page.getGlobalData('sessions').timers });
+      page.setData({ timers: (await page.getGlobalData('timers')).timers });
+      const useSound = (await page.getGlobalData('preferences')).sound;
       await page.eventHandlers.reset();
       page.shared.wasReset = false;
 
@@ -46,59 +102,24 @@ const page = new Page({
           try {
             page.shared.wakeLock = await navigator.wakeLock.request('screen');
             page.shared.wakeLock.addEventListener('release', () => {
-              console.log('Screen Wake Lock released:', page.shared.wakeLock.released);
+              // Nothing.
             });
-            console.log('Screen Wake Lock released:', page.shared.wakeLock.released);
           } catch (err) {
             console.error(`${err.name}, ${err.message}`);
           }
         };
-
         // Request a screen wake lock…
         await requestWakeLock();
+        // …and re-request it when the page becomes visible.
         document.addEventListener('visibilitychange', async () => {
-          if (page.shared.wakeLock !== null && document.visibilityState === 'visible') {
+          if (
+            page.shared.wakeLock !== null &&
+            document.visibilityState === 'visible'
+          ) {
             await requestWakeLock();
           }
         });
       }
-
-      /**
-       *
-       *
-       * @param {integer} duration Duration of the tone in milliseconds. Default is 500
-       * @param {double} frequency Frequency of the tone in hertz. default is 440
-       * @param {integer} volume Volume of the tone. Default is 1, off is 0.
-       * @param {string} type Type of tone. Possible values are sine, square, sawtooth, triangle, and custom. Default is sine.
-       * @param {function} callback Callback to use on end of tone
-       */
-      const beep = (duration, frequency, volume, type, callback) => {
-        const audioCtx = new (window.AudioContext ||
-          window.webkitAudioContext ||
-          window.audioContext)();
-
-        const oscillator = audioCtx.createOscillator();
-        const gainNode = audioCtx.createGain();
-
-        oscillator.connect(gainNode);
-        gainNode.connect(audioCtx.destination);
-
-        if (volume) {
-          gainNode.gain.value = volume;
-        }
-        if (frequency) {
-          oscillator.frequency.value = frequency;
-        }
-        if (type) {
-          oscillator.type = type;
-        }
-        if (callback) {
-          oscillator.onended = callback;
-        }
-
-        oscillator.start(audioCtx.currentTime);
-        oscillator.stop(audioCtx.currentTime + (duration || 500) / 1000);
-      };
 
       const countDown = (duration, elem) => {
         return new Promise((resolve) => {
@@ -109,14 +130,16 @@ const page = new Page({
             }
             passed += 1;
 
-            if (passed === duration) {
-              beep(500, 440);
-            } else if (passed >= duration - 3) {
-              beep(250, 523.25);
+            if (useSound) {
+              if (passed === duration) {
+                beep(500, 440);
+              } else if (passed >= duration - 3) {
+                beep(250, 523.25);
+              }
             }
             if (passed === duration || page.shared.wasReset) {
               page.setData({
-                [elem]: 0,
+                [elem]: page.getData().activeTimer[elem],
               });
               clearInterval(page.shared.interval);
               return resolve();
@@ -132,8 +155,16 @@ const page = new Page({
       for (let i = 0; i < activeTimer.sets; i++) {
         page.setData({ sets: activeTimer.sets - i });
         await countDown(activeTimer.active, 'active');
-        await countDown(activeTimer.resting, 'resting');
+        // The last set ends with the active period.
+        if (i < activeTimer.sets - 1) {
+          await countDown(activeTimer.resting, 'resting');
+        }
       }
+      await sleep(1000);
+      beep(500, 440);
+      await sleep(1000);
+      beep(1000, 440);
+      page.eventHandlers.reset();
     },
 
     pause() {
@@ -144,12 +175,14 @@ const page = new Page({
     },
 
     async reset() {
-      const timers = page.getData('timers')
-        ? page.getData('timers')
-        : (await page.getGlobalData('sessions')).timers;
+      const timers =
+        page.getData('timers') || (await page.getGlobalData('timers')).timers;
       page.setData({ timers: timers });
-      const activeTimer = timers[0];
-      // Shortcut to reset `active`, `resting`, and `sets`.
+      const activeTimer =
+        page.getData('activeTimer').sets !== 0
+          ? page.getData('activeTimer')
+          : timers[0];
+      // Shortcut to set `active`, `resting`, and `sets` individually.
       page.setData(activeTimer);
       page.setData({ activeTimer: activeTimer });
       page.shared.wasReset = true;

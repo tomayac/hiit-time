@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../../common.css" />
+    <link rel="stylesheet" href="workout.css" />
+    <script type="module" src="workout.js"></script>
+  </head>
+  <body>
+    <select class="timer-select" @input=${eventHandlers.selectTimer}>
+      ${data.timers.map((timer, i) => { return html`
+        <option ?selected=${i===0} data-sets=${timer.sets} data-active=${timer.active} data-resting=${timer.resting}>
+          Sets: ${timer.sets}, Active: ${timer.active}, Resting: ${timer.resting} (Duration: ${Math.ceil((timer.sets*(timer.active+timer.resting))/60)}min)
+        </option>`
+      })}
+    </select>
+
+    <button class="start" @click=${eventHandlers.start} type="button">Start</button>
+    <button class="pause" @click=${eventHandlers.pause} type="button">Pause</button>
+    <button class="reset" @click=${eventHandlers.reset} type="button">Reset</button>
+
+    <div>Sets</div>
+    <sl-progress-ring class="sets" percentage=${Math.floor(data.sets/data.activeTimer.sets*100)}>${data.sets}</sl-progress-ring>
+
+    <div>Active Time</div>
+    <sl-progress-ring class="active" percentage=${Math.floor(data.active/data.activeTimer.active*100)}>${data.active}</sl-progress-ring>
+
+    <div>Resting Time</div>
+    <sl-progress-ring class="resting" percentage=${Math.floor(data.resting/data.activeTimer.resting*100)}>${data.resting}</sl-progress-ring>
+  </body>
+</html>
