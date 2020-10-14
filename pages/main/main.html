@@ -11,8 +11,8 @@
     <button @click=${eventHandlers.start} type="button">Start</button>
     <button @click=${eventHandlers.pause} type="button">Pause</button>
     <button @click=${eventHandlers.reset} type="button">Reset</button>
-    <div>Rounds: <span id="rounds">${data.rounds}</span></div>
-    <sl-progress-ring percentage=${Math.floor(data.rounds/data.activeTimer.rounds*100)}>${data.rounds}</sl-progress-ring>
+    <div>Sets: <span id="sets">${data.sets}</span></div>
+    <sl-progress-ring percentage=${Math.floor(data.sets/data.activeTimer.sets*100)}>${data.sets}</sl-progress-ring>
 
     <div>Active Time: <span id="active">${data.active}</span></div>
     <sl-progress-ring percentage=${Math.floor(data.active/data.activeTimer.active*100)}>${data.active}</sl-progress-ring>
