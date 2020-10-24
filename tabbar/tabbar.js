@@ -22,7 +22,7 @@ const navbar = topWindowDocument.querySelector('iframe[name="navbar"]');
 const title = navbar.contentDocument.querySelector('#title');
 const anchors = document.querySelectorAll('a');
 const pages = Array.from(topWindowDocument.querySelectorAll('#pages iframe'));
-const pageNames = pages.map((page) => page.name);
+const pageNames = pages.map((page) => page.name).concat(['timer']);
 
 const showView = (target) => {
   // Hide all other pages.
@@ -38,9 +38,20 @@ const showView = (target) => {
 
   // Show the desired page.
   const targetPage = pages.find((page) => page.name === target);
-  const event = new CustomEvent('apppageshow', { detail: target });
-  targetPage.contentWindow.dispatchEvent(event);
-  targetPage.style.display = 'block';
+  if (targetPage) {
+    const sendAppPageShow = () => {
+      const event = new CustomEvent('apppageshow', { detail: target });
+      targetPage.contentWindow.dispatchEvent(event);
+    };
+    if (targetPage.contentDocument.readyState === 'complete') {
+      sendAppPageShow();
+      targetPage.style.display = 'block';
+    }
+    targetPage.addEventListener('load', () => {
+      sendAppPageShow();
+      targetPage.style.display = 'block';
+    });
+  }
 
   // Update title and hash
   title.textContent = target;

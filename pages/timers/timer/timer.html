@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/common.css" />
+    <script type="module" src="timer.js"></script>
+  </head>
+  <body>
+    <div>
+      <ul>
+        <li>
+          Sets: <input @input=${eventHandlers.setsInput} name="sets" id="sets" value=${data.sets}>,
+          Active: <input @input=${eventHandlers.activeInput} name="active" id="active" value=${data.active}>,
+          Resting: <input @input=${eventHandlers.restingInput} name="resting" id="resting" value=${data.resting}>
+          (Duration: <human-duration
+            value="${data.sets*(data.active+data.resting)}"
+            unit="seconds"
+          ></human-duration
+          >)
+        </li>
+      </ul>
+      <button @click=${eventHandlers.save} type="button">Save Timer</button>
+    </div>
+  </body>
+</html>

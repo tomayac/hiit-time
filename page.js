@@ -90,18 +90,37 @@ class Page {
   /**
    *
    *
+   * @param {*} src
+   * @param {*} data
+   * @memberof Page
+   */
+  newPage({src, target, data}) {
+    const newPage = window.top.document.querySelector('#new-page');
+    newPage.name = target;
+    newPage.contentWindow.name = target;
+    newPage.addEventListener('load', () => {
+      this.setGlobalData(target, data);
+      parent.location.hash = target;
+    });
+    newPage.src = src;
+  }
+
+  /**
+   *
+   *
    * @param {*} newData
    * @memberof Page
    */
   setData(newData) {
-    const data = dataStore.get();
-    if (newData) {
-      data[this.name] = {
-        ...data[this.name],
-        ...newData,
-      };
-      dataStore.set(data);
+    if (!newData) {
+      return;
     }
+    const data = dataStore.get();
+    data[this.name] = {
+      ...data[this.name],
+      ...newData,
+    };
+    dataStore.set(data);
     this.renderPage();
   }
 
@@ -142,6 +161,26 @@ class Page {
     }
     const data = dataStore.get();
     return data;
+  }
+
+  /**
+   *
+   *
+   * @param {*} key
+   * @param {*} newData
+   * @memberof Page
+   */
+  setGlobalData(key, newData) {
+    if (!key || !newData) {
+      return;
+    }
+    const data = dataStore.get();
+    data[key] = {
+      ...data[key],
+      ...newData,
+    };
+    dataStore.set(data);
+    this.renderPage();
   }
 }
 
