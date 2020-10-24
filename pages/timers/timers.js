@@ -13,20 +13,42 @@ const page = new Page({
 
   eventHandlers: {
     edit(e) {
-
+      const index = parseInt(e.target.dataset.index, 10);
+      console.log('index:', index);
+      console.log(page.getData().timers[index]);
+      console.log(parent._store);
       page.newPage({
         src: '/pages/timers/timer/timer.html',
         target: 'timer',
-        data: page.getData().timers[e.target.dataset.index],
+        data: {
+          ...page.getData().timers[index],
+          index: index,
+        },
       });
     },
 
     delete(e) {
-      console.log(e)
+      if (!confirm('Do you really want to delete the timer?')) {
+        return;
+      }
+      const index = parseInt(e.target.dataset.index, 10);
+      const timers = page.getData().timers;
+      timers.splice(index, 1);
+      page.setData({ timers: timers });
     },
 
     new(e) {
-      console.log(e)
+      const length = page.getData().timers.length;
+      page.newPage({
+        src: '/pages/timers/timer/timer.html',
+        target: 'timer',
+        data: {
+          sets: 1,
+          active: 1,
+          resting: 1,
+          index: length,
+        },
+      });
     },
   },
 

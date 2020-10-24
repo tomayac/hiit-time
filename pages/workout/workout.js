@@ -20,7 +20,21 @@ import Page from '/page.js';
 import '/node_modules/@shoelace-style/shoelace/dist/shoelace/shoelace.esm.js';
 import '/components/human-duration/human-duration.js';
 
+const STRINGS = {
+  ACTIVE: 'Active.',
+  REST: 'Rest.',
+  WORKOUT_FINISHED: 'Workout finished.',
+  3: 'Three.',
+  2: 'Two.',
+  1: 'One',
+};
+
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+const say = (words) => {
+  const utterance = new SpeechSynthesisUtterance(words);
+  speechSynthesis.speak(utterance);
+};
 
 /**
  *
@@ -94,7 +108,7 @@ const page = new Page({
     async start() {
       page.shared.paused = false;
       page.setData({ timers: (await page.getGlobalData('timers')).timers });
-      const useSound = (await page.getGlobalData('preferences')).sound;
+      const { sound, speak } = await page.getGlobalData('preferences');
       await page.eventHandlers.reset();
       page.shared.wasReset = false;
 
@@ -122,7 +136,7 @@ const page = new Page({
         });
       }
 
-      const countDown = (duration, elem) => {
+      const countDown = (duration, elem, lastSet = false) => {
         return new Promise((resolve) => {
           let passed = 0;
           page.shared.interval = setInterval(() => {
@@ -131,10 +145,16 @@ const page = new Page({
             }
             passed += 1;
 
-            if (useSound) {
+            if (sound) {
               if (passed === duration) {
+                if (speak && !lastSet) {
+                  say(elem === 'active' ? STRINGS.REST : STRINGS.ACTIVE);
+                }
                 beep(500, 440);
               } else if (passed >= duration - 3) {
+                if (speak) {
+                  say(STRINGS[duration - passed]);
+                }
                 beep(250, 523.25);
               }
             }
@@ -155,11 +175,18 @@ const page = new Page({
       const activeTimer = page.getData('activeTimer');
       for (let i = 0; i < activeTimer.sets; i++) {
         page.setData({ sets: activeTimer.sets - i });
-        await countDown(activeTimer.active, 'active');
+        await countDown(
+          activeTimer.active,
+          'active',
+          i === activeTimer.sets - 1
+        );
         // The last set ends with the active period.
         if (i < activeTimer.sets - 1) {
           await countDown(activeTimer.resting, 'resting');
         }
+      }
+      if (speak) {
+        say(STRINGS.WORKOUT_FINISHED);
       }
       await sleep(1000);
       beep(500, 440);

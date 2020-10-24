@@ -94,14 +94,18 @@ class Page {
    * @param {*} data
    * @memberof Page
    */
-  newPage({src, target, data}) {
+  newPage({ src, target, data }) {
     const newPage = window.top.document.querySelector('#new-page');
     newPage.name = target;
     newPage.contentWindow.name = target;
-    newPage.addEventListener('load', () => {
-      this.setGlobalData(target, data);
-      parent.location.hash = target;
-    });
+    newPage.addEventListener(
+      'load',
+      () => {
+        this.setGlobalData(target, data);
+        parent.location.hash = target;
+      },
+      { once: true }
+    );
     newPage.src = src;
   }
 
@@ -112,10 +116,12 @@ class Page {
    * @memberof Page
    */
   setData(newData) {
-    if (!newData) {
+    const data = dataStore.get();
+    if (newData === null) {
+      delete data[this.name];
+      dataStore.set(data);
       return;
     }
-    const data = dataStore.get();
     data[this.name] = {
       ...data[this.name],
       ...newData,
@@ -171,10 +177,15 @@ class Page {
    * @memberof Page
    */
   setGlobalData(key, newData) {
-    if (!key || !newData) {
+    if (!key) {
       return;
     }
     const data = dataStore.get();
+    if (newData === null) {
+      delete data[key];
+      dataStore.set(data);
+      return;
+    }
     data[key] = {
       ...data[key],
       ...newData,

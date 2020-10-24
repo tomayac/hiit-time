@@ -8,19 +8,46 @@
   </head>
   <body>
     <div>
-      <ul>
-        <li>
-          Sets: <input @input=${eventHandlers.setsInput} name="sets" id="sets" value=${data.sets}>,
-          Active: <input @input=${eventHandlers.activeInput} name="active" id="active" value=${data.active}>,
-          Resting: <input @input=${eventHandlers.restingInput} name="resting" id="resting" value=${data.resting}>
-          (Duration: <human-duration
-            value="${data.sets*(data.active+data.resting)}"
-            unit="seconds"
-          ></human-duration
-          >)
-        </li>
-      </ul>
-      <button @click=${eventHandlers.save} type="button">Save Timer</button>
+      <label for="sets">Sets:</label>
+      <input
+        @input="${eventHandlers.setsInput}"
+        name="sets"
+        id="sets"
+        value="${data.sets}"
+      />
+    </div>
+
+    <div>
+      <label for="active">Active:</label>
+      <input
+        @input="${eventHandlers.activeInput}"
+        name="active"
+        id="active"
+        value="${data.active}"
+      />
+    </div>
+
+    <div>
+      <label for="resting">Resting:</label>
+      <input
+        @input="${eventHandlers.restingInput}"
+        name="resting"
+        id="resting"
+        value="${data.resting}"
+      />
+    </div>
+
+    <div>
+      Duration:
+      <human-duration
+        value="${data.sets*(data.active+data.resting)}"
+        unit="seconds"
+      ></human-duration>
+    </div>
+
+    <div>
+      <button @click="${eventHandlers.save}" type="button">Save</button>
+      <button @click="${eventHandlers.cancel}" type="button">Cancel</button>
     </div>
   </body>
 </html>

@@ -18,12 +18,24 @@
             unit="seconds"
           ></human-duration
           >)
-          <button data-index=${index} @click=${eventHandlers.edit} type="button">Edit</button>
-          <button data-index=${index} @click=${eventHandlers.delete} type="button">Delete</button>
+          <button
+            data-index="${index}"
+            @click="${eventHandlers.edit}"
+            type="button"
+          >
+            Edit
+          </button>
+          <button
+            data-index="${index}"
+            @click="${eventHandlers.delete}"
+            type="button"
+          >
+            Delete
+          </button>
         </li>
         `; })}
       </ul>
-      <button @click=${eventHandlers.new} type="button">New Timer</button>
+      <button @click="${eventHandlers.new}" type="button">New Timer</button>
     </div>
   </body>
 </html>
