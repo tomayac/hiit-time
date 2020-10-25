@@ -4,13 +4,13 @@
   "display": "standalone",
   "start_url": "/",
   "scope": "/",
-  "theme_color": "ButtonFace",
-  "background_color": "ButtonFace",
+  "theme_color": "#000",
+  "background_color": "#000",
   "orientation": "portrait-primary",
   "lang": "en",
   "icons": [
     {
-      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='144' height='144' viewbox='0 0 20 20'%3E%3Ctext text-anchor='middle' x='50%25' y='50%25'%3E👟%3C/text%3E%3C/svg%3E",
+      "src": "/favicon.svg",
       "sizes": "144x144",
       "type": "image/svg+xml"
     }

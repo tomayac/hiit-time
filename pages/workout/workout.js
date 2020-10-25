@@ -31,8 +31,10 @@ if ('addEventListener' in window.speechSynthesis) {
 
 const say = (words, voice) => {
   const utterance = new SpeechSynthesisUtterance(words);
-  utterance.voice = voice;
-  utterance.lang = voice.lang;
+  if (voice) {
+    utterance.voice = voice;
+    utterance.lang = voice.lang;
+  }
   utterance.volume = 1;
   utterance.rate = 1;
   utterance.pitch = 1;

@@ -1,12 +1,1 @@
 @import '/node_modules/@shoelace-style/shoelace/dist/shoelace/shoelace.css';
-
-select {
-  display: block;
-  font-size: inherit;
-  width: 100%;
-  margin-block-end: 1rem;
-}
-
-option {
-  font-weight: inherit;
-}
