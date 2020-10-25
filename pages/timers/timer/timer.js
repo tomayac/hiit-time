@@ -27,7 +27,7 @@ const page = new Page({
     },
 
     async save() {
-      const timers = (await page.getGlobalData('timers')).timers;
+      const timers = (await page.getPageData('timers')).timers;
       const data = page.getData();
       const timer = {
         sets: data.sets,
@@ -35,8 +35,8 @@ const page = new Page({
         resting: data.resting,
       };
       timers[page.getData().index] = timer;
-      page.setGlobalData('timers', { timers: timers });
-      page.setGlobalData('workout', {
+      page.setPageData('timers', { timers: timers });
+      page.setPageData('workout', {
         activeTimer: {
           sets: data.sets,
           active: data.active,

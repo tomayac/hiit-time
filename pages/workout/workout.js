@@ -20,15 +20,6 @@ import Page from '/page.js';
 import '/node_modules/@shoelace-style/shoelace/dist/shoelace/shoelace.esm.js';
 import '/components/human-duration/human-duration.js';
 
-const STRINGS = {
-  ACTIVE: 'Active.',
-  REST: 'Rest.',
-  WORKOUT_FINISHED: 'Workout finished.',
-  3: 'Three.',
-  2: 'Two.',
-  1: 'One',
-};
-
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const say = (words) => {
@@ -107,8 +98,8 @@ const page = new Page({
 
     async start() {
       page.shared.paused = false;
-      page.setData({ timers: (await page.getGlobalData('timers')).timers });
-      const { sound, speak } = await page.getGlobalData('preferences');
+      page.setData({ timers: (await page.getPageData('timers')).timers });
+      const { sound, speak } = await page.getPageData('preferences');
       await page.eventHandlers.reset();
       page.shared.wasReset = false;
 
@@ -148,7 +139,9 @@ const page = new Page({
             if (sound) {
               if (passed === duration) {
                 if (speak && !lastSet) {
-                  say(elem === 'active' ? STRINGS.REST : STRINGS.ACTIVE);
+                  say(
+                    elem === 'active' ? page.strings.REST : page.strings.ACTIVE
+                  );
                 }
                 beep(500, 440);
               } else if (passed >= duration - 3) {
@@ -186,7 +179,7 @@ const page = new Page({
         }
       }
       if (speak) {
-        say(STRINGS.WORKOUT_FINISHED);
+        say(page.strings.WORKOUT_FINISHED);
       }
       await sleep(1000);
       beep(500, 440);
@@ -204,7 +197,7 @@ const page = new Page({
 
     async reset() {
       const timers =
-        page.getData('timers') || (await page.getGlobalData('timers')).timers;
+        page.getData('timers') || (await page.getPageData('timers')).timers;
       page.setData({ timers: timers });
       const activeTimer =
         page.getData('activeTimer').sets !== 0

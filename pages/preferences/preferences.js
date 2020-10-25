@@ -32,6 +32,11 @@ const page = new Page({
     toggleSpeak(e) {
       page.setData({ speak: e.target.checked });
     },
+
+    selectLanguage(e) {
+      const selectedOption = e.target.options[e.target.options.selectedIndex];
+      page.setGlobalData({ locale: selectedOption.value });
+    },
   },
 
   onLoad() {},

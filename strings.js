@@ -16,53 +16,25 @@
 
 // @license © 2020 Google LLC. Licensed under the Apache License, Version 2.0.
 
-import strings from '/strings.js';
-
-window.top._store = window.top._store || {
-  global: {
-    languages: Object.keys(strings),
-    locale: 'EN',
+const strings = {
+  EN: {
+    ACTIVE: 'Active',
+    REST: 'Rest',
+    WORKOUT_FINISHED: 'Workout finished',
+    3: 'Three',
+    2: 'Two',
+    1: 'One',
+    START: 'Start',
+    PAUSE: 'Pause',
+    RESET: 'Reset',
+    SETS: 'Sets',
+    DURATION: 'Duration',
+    CHANGE_TIMERS: 'Change timers',
+    LANGUAGES: 'Languages',
+    EN: 'English',
+    DE: 'German',
   },
+  DE: {},
 };
 
-/**
- *
- *
- * @class DataStore
- */
-class DataStore {
-  /**
-   *Creates an instance of DataStore.
-   * @param {*} props
-   * @memberof DataStore
-   */
-  constructor(props) {
-    if (props) {
-      window.top._store = props;
-    }
-  }
-
-  /**
-   *
-   *
-   * @return {Object}
-   * @memberof DataStore
-   */
-  get() {
-    return window.top._store;
-  }
-
-  /**
-   *
-   *
-   * @param {*} props
-   * @memberof DataStore
-   */
-  set(props) {
-    if (props) {
-      window.top._store = props;
-    }
-  }
-}
-
-export default DataStore;
+export default strings;

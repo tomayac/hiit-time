@@ -19,6 +19,7 @@
 import DataStore from '/datastore.js';
 // eslint-disable-next-line no-unused-vars
 import { html, render } from '/node_modules/lit-html/lit-html.js';
+import strings from '/strings.js';
 
 const dataStore = new DataStore();
 
@@ -42,6 +43,8 @@ class Page {
       dataStore.set(data);
     }
 
+    this.strings = strings[this.getGlobalData().locale];
+
     this.shared = options.shared || {};
 
     this.eventHandlers = options.eventHandlers || {};
@@ -49,7 +52,8 @@ class Page {
     const innerHTML = document.body.innerHTML
       .replace('&gt;', '>')
       .replace('&lt;', '<');
-    this.template = (data, eventHandlers) => eval('html`' + innerHTML + '`');
+    this.template = (data, global, eventHandlers, strings) =>
+      eval('html`' + innerHTML + '`');
 
     this.onLoad = options.onLoad || (() => {});
     this.onUnload = options.onUnload || (() => {});
@@ -84,7 +88,15 @@ class Page {
    * @memberof Page
    */
   renderPage() {
-    render(this.template(this.getData(), this.eventHandlers), document.body);
+    render(
+      this.template(
+        this.getData(),
+        this.getGlobalData(),
+        this.eventHandlers,
+        this.strings
+      ),
+      document.body
+    );
   }
 
   /**
@@ -101,7 +113,7 @@ class Page {
     newPage.addEventListener(
       'load',
       () => {
-        this.setGlobalData(target, data);
+        this.setPageData(target, data);
         parent.location.hash = target;
       },
       { once: true }
@@ -145,28 +157,38 @@ class Page {
   /**
    *
    *
+   * @return {object}
+   * @memberof Page
+   */
+  getGlobalData() {
+    const data = dataStore.get();
+    return data.global;
+  }
+
+  /**
+   *
+   *
    * @param {boolean} [key=false]
    * @return {object}
    * @memberof Page
    */
-  async getGlobalData(key = false) {
-    if (key) {
-      const page = window.top.document.querySelector(
-        `#pages iframe[name="${key}"]`
-      );
-      return new Promise((resolve) => {
-        if (page.contentDocument.readyState === 'complete') {
-          const data = dataStore.get();
-          return resolve(data[key]);
-        }
-        page.addEventListener('load', () => {
-          const data = dataStore.get();
-          resolve(data[key]);
-        });
-      });
+  async getPageData(key = false) {
+    if (!key) {
+      return;
     }
-    const data = dataStore.get();
-    return data;
+    const page = window.top.document.querySelector(
+      `#pages iframe[name="${key}"]`
+    );
+    return new Promise((resolve) => {
+      if (page.contentDocument.readyState === 'complete') {
+        const data = dataStore.get();
+        return resolve(data[key]);
+      }
+      page.addEventListener('load', () => {
+        const data = dataStore.get();
+        resolve(data[key]);
+      });
+    });
   }
 
   /**
@@ -176,7 +198,7 @@ class Page {
    * @param {*} newData
    * @memberof Page
    */
-  setGlobalData(key, newData) {
+  setPageData(key, newData) {
     if (!key) {
       return;
     }
@@ -188,6 +210,27 @@ class Page {
     }
     data[key] = {
       ...data[key],
+      ...newData,
+    };
+    dataStore.set(data);
+    this.renderPage();
+  }
+
+  /**
+   *
+   *
+   * @param {*} newData
+   * @memberof Page
+   */
+  setGlobalData(newData) {
+    const data = dataStore.get();
+    if (newData === null) {
+      delete data['global'];
+      dataStore.set(data);
+      return;
+    }
+    data['global'] = {
+      ...data['global'],
       ...newData,
     };
     dataStore.set(data);
