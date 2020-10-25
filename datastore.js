@@ -21,7 +21,7 @@ import strings from '/strings.js';
 window.top._store = window.top._store || {
   global: {
     languages: Object.keys(strings),
-    locale: 'EN',
+    locale: 'en-US',
   },
 };
 

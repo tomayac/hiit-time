@@ -8,33 +8,65 @@
     <script type="module" src="workout.js"></script>
   </head>
   <body>
-    <select ?disabled=${!data.timers.length} class="timer-select" @input=${eventHandlers.selectTimer}>
+    <select
+      ?disabled="${!data.timers.length}"
+      class="timer-select"
+      @input="${eventHandlers.selectTimer}"
+    >
       ${data.timers.map((timer, i) => { return html`
-        <option ?selected=${i===0} data-sets=${timer.sets} data-active=${timer.active} data-resting=${timer.resting}>
-          ${strings.SETS}: ${timer.sets}, ${strings.ACTIVE}: ${timer.active}, ${strings.REST}: ${timer.resting} (${strings.DURATION}: ${Math.ceil((timer.sets*(timer.active+timer.resting))/60)}min)
-        </option>`
-      })}
+      <option
+        ?selected="${i===0}"
+        data-sets="${timer.sets}"
+        data-active="${timer.active}"
+        data-resting="${timer.resting}"
+      >
+        ${strings.SETS}: ${timer.sets}, ${strings.ACTIVE}: ${timer.active},
+        ${strings.REST}: ${timer.resting} (${strings.DURATION}:
+        ${Math.ceil((timer.sets*(timer.active+timer.resting))/60)}min)
+      </option>
+      ` })}
     </select>
 
-    <div><a href="/#timers" target="_top">${strings.CHANGE_TIMERS}</a></div>
+    <div>
+      <button class="start" @click="${eventHandlers.start}" type="button">
+        ${strings.START}
+      </button>
+      <button class="pause" @click="${eventHandlers.pause}" type="button">
+        ${strings.PAUSE}
+      </button>
+      <button class="reset" @click="${eventHandlers.reset}" type="button">
+        ${strings.RESET}
+      </button>
+    </div>
 
     <div>
-      <button class="start" @click=${eventHandlers.start} type="button">${strings.START}</button>
-      <button class="pause" @click=${eventHandlers.pause} type="button">${strings.PAUSE}</button>
-      <button class="reset" @click=${eventHandlers.reset} type="button">${strings.RESET}</button>
+      ${strings.SETS} (<human-duration
+        value="${data.sets*(data.active+data.resting)}"
+        unit="seconds"
+      ></human-duration
+      >)
     </div>
 
-    <div>${strings.SETS}
-      (<human-duration value=${data.sets*(data.active+data.resting)} unit="seconds"></human-duration>)
-    </div>
-
-    <sl-progress-ring class="sets" percentage=${Math.floor(data.sets/data.activeTimer.sets*100)}>${data.sets}</sl-progress-ring>
+    <sl-progress-ring
+      class="sets"
+      percentage="${Math.floor(data.sets/data.activeTimer.sets*100)}"
+      >${data.sets}</sl-progress-ring
+    >
 
     <div>${strings.ACTIVE}</div>
-    <sl-progress-ring class="active" percentage=${Math.floor(data.active/data.activeTimer.active*100)}>${data.active}</sl-progress-ring>
+    <sl-progress-ring
+      class="active"
+      percentage="${Math.floor(data.active/data.activeTimer.active*100)}"
+      >${data.active}</sl-progress-ring
+    >
 
     <div>${strings.REST}</div>
-    <sl-progress-ring class="resting" percentage=${Math.floor(data.resting/data.activeTimer.resting*100)}>${data.resting}</sl-progress-ring>
+    <sl-progress-ring
+      class="resting"
+      percentage="${Math.floor(data.resting/data.activeTimer.resting*100)}"
+      >${data.resting}</sl-progress-ring
+    >
 
+    <div><a href="/#timers" target="_top">${strings.CHANGE_TIMERS}</a></div>
   </body>
 </html>

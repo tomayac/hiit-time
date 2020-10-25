@@ -14,9 +14,6 @@ const page = new Page({
   eventHandlers: {
     edit(e) {
       const index = parseInt(e.target.dataset.index, 10);
-      console.log('index:', index);
-      console.log(page.getData().timers[index]);
-      console.log(parent._store);
       page.newPage({
         src: '/pages/timers/timer/timer.html',
         target: 'timer',

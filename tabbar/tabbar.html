@@ -8,8 +8,23 @@
     <script type="module" src="tabbar.js"></script>
   </head>
   <body>
-    <a href="/pages/workout/" target="workout">Workout</a>
-    <a href="/pages/timers/" target="timers">Timers</a>
-    <a href="/pages/preferences/" target="preferences">Preferences</a>
+    <a
+      href="/#workout"
+      class="${window.top.location.hash==='#workout'?'highlight':''}"
+      target="_top"
+      >${strings.WORKOUT}</a
+    >
+    <a
+      href="/#timers"
+      class="${window.top.location.hash==='#timers'?'highlight':''}"
+      target="_top"
+      >${strings.TIMERS}</a
+    >
+    <a
+      href="/#preferences"
+      class="${window.top.location.hash==='#preferences'?'highlight':''}"
+      target="_top"
+      >${strings.PREFERENCES}</a
+    >
   </body>
 </html>

@@ -11,8 +11,8 @@
       <ul>
         ${data.timers.map((timer, index) => { return html`
         <li>
-          Sets: ${timer.sets}, Active: ${timer.active}, Resting:
-          ${timer.resting} (Duration:
+          ${strings.SETS}: ${timer.sets}, ${strings.ACTIVE}: ${timer.active},
+          ${strings.REST}: ${timer.resting} (${strings.DURATION}:
           <human-duration
             value="${timer.sets*(timer.active+timer.resting)}"
             unit="seconds"
@@ -23,19 +23,21 @@
             @click="${eventHandlers.edit}"
             type="button"
           >
-            Edit
+            ${strings.EDIT}
           </button>
           <button
             data-index="${index}"
             @click="${eventHandlers.delete}"
             type="button"
           >
-            Delete
+            ${strings.DELETE}
           </button>
         </li>
         `; })}
       </ul>
-      <button @click="${eventHandlers.new}" type="button">New Timer</button>
+      <button @click="${eventHandlers.new}" type="button">
+        ${strings.NEW_TIMER}
+      </button>
     </div>
   </body>
 </html>

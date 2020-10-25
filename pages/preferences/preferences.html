@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="/common.css" />
+    <link rel="stylesheet" href="/preferences.css" />
     <script type="module" src="preferences.js"></script>
   </head>
   <body>
@@ -14,7 +15,7 @@
         ?checked="${data.sound}"
         @change="${eventHandlers.toggleSound}"
       />
-      <label for="sound">Sound</label>
+      <label for="sound">${strings.SOUNDS}</label>
     </div>
     <div>
       <input
@@ -24,7 +25,7 @@
         ?checked="${data.speak}"
         @change="${eventHandlers.toggleSpeak}"
       />
-      <label for="speak">Speak</label>
+      <label for="speak">${strings.SPEAK}</label>
     </div>
     <div>
       <label for="languages">${strings.LANGUAGES}</label>

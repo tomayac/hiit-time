@@ -8,7 +8,7 @@
   </head>
   <body>
     <div>
-      <label for="sets">Sets:</label>
+      <label for="sets">${strings.SETS}</label>
       <input
         @input="${eventHandlers.setsInput}"
         name="sets"
@@ -18,7 +18,7 @@
     </div>
 
     <div>
-      <label for="active">Active:</label>
+      <label for="active">${strings.ACTIVE}</label>
       <input
         @input="${eventHandlers.activeInput}"
         name="active"
@@ -28,7 +28,7 @@
     </div>
 
     <div>
-      <label for="resting">Resting:</label>
+      <label for="resting">${strings.REST}</label>
       <input
         @input="${eventHandlers.restingInput}"
         name="resting"
@@ -38,7 +38,7 @@
     </div>
 
     <div>
-      Duration:
+      ${strings.DURATION}
       <human-duration
         value="${data.sets*(data.active+data.resting)}"
         unit="seconds"
@@ -46,8 +46,12 @@
     </div>
 
     <div>
-      <button @click="${eventHandlers.save}" type="button">Save</button>
-      <button @click="${eventHandlers.cancel}" type="button">Cancel</button>
+      <button @click="${eventHandlers.save}" type="button">
+        ${strings.SAVE}
+      </button>
+      <button @click="${eventHandlers.cancel}" type="button">
+        ${strings.CANCEL}
+      </button>
     </div>
   </body>
 </html>

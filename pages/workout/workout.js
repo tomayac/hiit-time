@@ -22,8 +22,20 @@ import '/components/human-duration/human-duration.js';
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-const say = (words) => {
+let voices = null;
+if ('addEventListener' in window.speechSynthesis) {
+  window.speechSynthesis.addEventListener('voiceschanged', () => {
+    voices = speechSynthesis.getVoices();
+  });
+}
+
+const say = (words, voice) => {
   const utterance = new SpeechSynthesisUtterance(words);
+  utterance.voice = voice;
+  utterance.lang = voice.lang;
+  utterance.volume = 1;
+  utterance.rate = 1;
+  utterance.pitch = 1;
   speechSynthesis.speak(utterance);
 };
 
@@ -102,6 +114,9 @@ const page = new Page({
       const { sound, speak } = await page.getPageData('preferences');
       await page.eventHandlers.reset();
       page.shared.wasReset = false;
+      const lang = page.getGlobalData().locale;
+      voices = speechSynthesis.getVoices();
+      const voice = voices.find((voice) => voice.lang === lang);
 
       if ('wakeLock' in navigator) {
         const requestWakeLock = async () => {
@@ -140,13 +155,14 @@ const page = new Page({
               if (passed === duration) {
                 if (speak && !lastSet) {
                   say(
-                    elem === 'active' ? page.strings.REST : page.strings.ACTIVE
+                    elem === 'active' ? page.strings.REST : page.strings.ACTIVE,
+                    voice
                   );
                 }
                 beep(500, 440);
               } else if (passed >= duration - 3) {
                 if (speak) {
-                  say(STRINGS[duration - passed]);
+                  say(page.strings[duration - passed], voice);
                 }
                 beep(250, 523.25);
               }
@@ -179,12 +195,14 @@ const page = new Page({
         }
       }
       if (speak) {
-        say(page.strings.WORKOUT_FINISHED);
+        say(page.strings.WORKOUT_FINISHED, voice);
       }
       await sleep(1000);
-      beep(500, 440);
-      await sleep(1000);
-      beep(1000, 440);
+      if (sound) {
+        beep(500, 440);
+        await sleep(1000);
+        beep(1000, 440);
+      }
       page.eventHandlers.reset();
     },
 

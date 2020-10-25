@@ -16,11 +16,14 @@
 
 // @license © 2020 Google LLC. Licensed under the Apache License, Version 2.0.
 
+import Page from '/page.js';
+import strings from '/strings.js';
+
 const topWindowDocument = window.top.document;
-const originalTitle = topWindowDocument.title;
+let originalTitle = null;
 const navbar = topWindowDocument.querySelector('iframe[name="navbar"]');
-const title = navbar.contentDocument.querySelector('#title');
-const anchors = document.querySelectorAll('a');
+const navbarTitle = navbar.contentDocument.querySelector('#title');
+const tabbar = topWindowDocument.querySelector('iframe[name="tabbar"]');
 
 const showView = (target) => {
   // Hide all other pages.
@@ -42,8 +45,10 @@ const showView = (target) => {
   const targetPage = pages.find((page) => page.name === target);
   if (targetPage) {
     const sendAppPageShow = () => {
-      const event = new CustomEvent('apppageshow', { detail: target });
-      targetPage.contentWindow.dispatchEvent(event);
+      const event1 = new CustomEvent('apppageshow', { detail: target });
+      targetPage.contentWindow.dispatchEvent(event1);
+      const event2 = new CustomEvent('apppageshow', { detail: 'navbar' });
+      tabbar.contentWindow.dispatchEvent(event2);
     };
     if (targetPage.contentDocument.readyState === 'complete') {
       sendAppPageShow();
@@ -57,26 +62,10 @@ const showView = (target) => {
   }
 
   // Update title and hash
-  title.textContent = target;
+  navbarTitle.textContent = target;
   topWindowDocument.title = `${originalTitle} — ${target}`;
   parent.location.hash = target;
 };
-
-// Hook up tab bar links.
-const onAnchorClick = (e) => {
-  e.preventDefault();
-  const clickedAnchor = e.target;
-  anchors.forEach((anchor) => {
-    if (clickedAnchor === anchor) {
-      return anchor.classList.add('highlight');
-    }
-    anchor.classList.remove('highlight');
-  });
-  showView(clickedAnchor.target);
-};
-anchors.forEach((anchor) => {
-  anchor.addEventListener('click', onAnchorClick);
-});
 
 const navigateToHash = () => {
   const hash = topWindowDocument.location.hash.substr(1);
@@ -88,12 +77,6 @@ const navigateToHash = () => {
   } else {
     showView('workout');
   }
-  anchors.forEach((anchor) => {
-    if (anchor.target === hash) {
-      return anchor.classList.add('highlight');
-    }
-    anchor.classList.remove('highlight');
-  });
 };
 
 // Restore state on load, or load default state.
@@ -115,3 +98,9 @@ Promise.all(
 });
 
 window.top.addEventListener('popstate', navigateToHash);
+
+const page = new Page({
+  onLoad() {
+    originalTitle = strings[page.getGlobalData().locale].TITLE;
+  },
+});

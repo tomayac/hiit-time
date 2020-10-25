@@ -37,12 +37,6 @@ class Page {
   constructor(options) {
     this.name = window.name;
 
-    if (options.data) {
-      const data = dataStore.get();
-      data[this.name] = options.data;
-      dataStore.set(data);
-    }
-
     this.strings = strings[this.getGlobalData().locale];
 
     this.shared = options.shared || {};
@@ -54,6 +48,14 @@ class Page {
       .replace('&lt;', '<');
     this.template = (data, global, eventHandlers, strings) =>
       eval('html`' + innerHTML + '`');
+
+    if (options.data) {
+      const data = dataStore.get();
+      data[this.name] = options.data;
+      dataStore.set(data);
+    } else {
+      this.renderPage();
+    }
 
     this.onLoad = options.onLoad || (() => {});
     this.onUnload = options.onUnload || (() => {});
@@ -71,6 +73,7 @@ class Page {
     });
 
     window.addEventListener('apppageshow', (e) => {
+      this.strings = strings[this.getGlobalData().locale];
       console.log('apppageshow', this.name);
       this.onShow();
       this.renderPage();
@@ -234,6 +237,15 @@ class Page {
       ...newData,
     };
     dataStore.set(data);
+    if (newData.locale) {
+      this.strings = strings[newData.locale];
+      window.top.document
+        .querySelectorAll('iframe[name=tabbar],iframe[name=navbar]')
+        .forEach((iframe) => {
+          const event = new CustomEvent('apppageshow', { detail: iframe.name });
+          iframe.contentWindow.dispatchEvent(event);
+        });
+    }
     this.renderPage();
   }
 }
