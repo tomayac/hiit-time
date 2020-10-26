@@ -10,9 +10,7 @@
   <body unresolved>
     <div>
       ${top.document.querySelector('#new-page').style.display === 'block' ?
-      html`<a href="#" @click="${eventHandlers.back}">
-        <h1>❮</h1></a
-      >` : html`
+      html`<a href="#" @click="${eventHandlers.back}"> <h1>❮</h1></a>` : html`
       <h1>${strings.TITLE}</h1>
       ` }
       <span>${strings[top.window.location.hash.substr(1).toUpperCase()]}</span>

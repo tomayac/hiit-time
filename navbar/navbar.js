@@ -6,5 +6,5 @@ const page = new Page({
       e.preventDefault();
       parent.history.back();
     },
-  }
+  },
 });
