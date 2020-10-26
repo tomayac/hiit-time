@@ -5,6 +5,13 @@ const page = new Page({
   data: {},
 
   eventHandlers: {
+    nameInput(e) {
+      const value = e.target.value;
+      if (value.length) {
+        page.setData({ name: value });
+      }
+    },
+
     setsInput(e) {
       const value = parseInt(e.target.value, 10);
       if (value > 0) {
@@ -33,6 +40,7 @@ const page = new Page({
         sets: data.sets,
         active: data.active,
         resting: data.resting,
+        name: data.name,
       };
       timers[page.getData().index] = timer;
       page.setPageData('timers', { timers: timers });
@@ -41,10 +49,12 @@ const page = new Page({
           sets: data.sets,
           active: data.active,
           resting: data.resting,
+          name: data.name,
         },
         sets: data.sets,
         active: data.active,
         resting: data.resting,
+        name: data.name,
       });
       parent.history.back();
       page.setData(null);

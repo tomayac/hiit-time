@@ -62,8 +62,9 @@ const showView = (target) => {
   }
 
   // Update title and hash
-  navbarTitle.textContent = target;
-  topWindowDocument.title = `${originalTitle} — ${target}`;
+  const titleText = strings[page.getGlobalData().locale][target.toUpperCase()];
+  navbarTitle.textContent = titleText;
+  topWindowDocument.title = `${originalTitle} — ${titleText}`;
   parent.location.hash = target;
 };
 
@@ -77,6 +78,8 @@ const navigateToHash = () => {
   } else {
     showView('workout');
   }
+  const event = new CustomEvent('apppageshow', { detail: 'navbar' });
+  navbar.contentWindow.dispatchEvent(event);
 };
 
 // Restore state on load, or load default state.

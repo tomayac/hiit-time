@@ -8,7 +8,14 @@
     <script type="module" src="navbar.js"></script>
   </head>
   <body>
-    <h1>HIIT Time</h1>
-    <span id="title"></span>
+    <div>
+      ${top.document.querySelector('#new-page').style.display === 'block' ?
+      html`<button type="button" @click="${eventHandlers.back}">
+        <h1>❮</h1></button
+      >` : html`
+      <h1>${strings.TITLE}</h1>
+      ` }
+      <span id="title"></span>
+    </div>
   </body>
 </html>

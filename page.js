@@ -44,8 +44,10 @@ class Page {
     this.eventHandlers = options.eventHandlers || {};
 
     const innerHTML = document.body.innerHTML
-      .replace('&gt;', '>')
-      .replace('&lt;', '<');
+      .replaceAll('&gt;', '>')
+      .replaceAll('&lt;', '<')
+      .replaceAll('<!--', '')
+      .replaceAll('-->', '');
     this.template = (data, global, eventHandlers, strings) =>
       eval('html`' + innerHTML + '`');
 
@@ -111,6 +113,7 @@ class Page {
    */
   newPage({ src, target, data }) {
     const newPage = window.top.document.querySelector('#new-page');
+    const navbar = window.top.document.querySelector('iframe[name="navbar"]');
     newPage.name = target;
     newPage.contentWindow.name = target;
     newPage.addEventListener(
@@ -118,6 +121,8 @@ class Page {
       () => {
         this.setPageData(target, data);
         parent.location.hash = target;
+        const event = new CustomEvent('apppageshow', { detail: 'navbar' });
+        navbar.contentWindow.dispatchEvent(event);
       },
       { once: true }
     );

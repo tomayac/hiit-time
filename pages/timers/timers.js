@@ -4,10 +4,10 @@ import '/components/human-duration/human-duration.js';
 const page = new Page({
   data: {
     timers: [
-      { sets: 1, active: 5, resting: 5 },
-      { sets: 2, active: 10, resting: 5 },
-      { sets: 10, active: 40, resting: 20 },
-      { sets: 10, active: 30, resting: 30 },
+      { sets: 1, active: 5, resting: 5, name: 'Ultra short' },
+      { sets: 2, active: 10, resting: 5, name: 'Short' },
+      { sets: 10, active: 30, resting: 30, name: 'Regular' },
+      { sets: 10, active: 40, resting: 20, name: 'Hard' },
     ],
   },
 
@@ -49,5 +49,16 @@ const page = new Page({
     },
   },
 
-  onShow() {},
+  onLoad() {
+    /*
+    ['html', 'css', 'js'].forEach((extension) => {
+      const link = document.createElement('link');
+      link.rel = 'prefetch';
+      link.href = `/pages/timers/timer/timer.${extension}`;
+      if (extension !== 'html') {
+        link.as = extension === 'css' ? 'style' : 'script';
+      }
+      document.head.appendChild(link);
+    });*/
+  },
 });

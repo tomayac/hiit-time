@@ -8,33 +8,54 @@
   </head>
   <body>
     <div>
-      <ul>
-        ${data.timers.map((timer, index) => { return html`
-        <li>
-          ${strings.SETS}: ${timer.sets}, ${strings.ACTIVE}: ${timer.active},
-          ${strings.REST}: ${timer.resting} (${strings.DURATION}:
-          <human-duration
-            value="${timer.sets*(timer.active+timer.resting)}"
-            unit="seconds"
-          ></human-duration
-          >)
-          <button
-            data-index="${index}"
-            @click="${eventHandlers.edit}"
-            type="button"
-          >
-            ${strings.EDIT}
-          </button>
-          <button
-            data-index="${index}"
-            @click="${eventHandlers.delete}"
-            type="button"
-          >
-            ${strings.DELETE}
-          </button>
-        </li>
-        `; })}
-      </ul>
+      <table>
+        <thead>
+          <tr>
+            <th>${strings.NAME}</th>
+            <th>${strings.SETS}</th>
+            <th>${strings.ACTIVE}</th>
+            <th>${strings.REST}</th>
+            <th>${strings.DURATION}</th>
+            <th colspan="2">${strings.ACTIONS}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- ${data.timers.map((timer, index) => html` -->
+          <tr>
+            <td>${timer.name}</td>
+            <td>${timer.sets}</td>
+            <td>${timer.active}</td>
+            <td>${timer.resting}</td>
+            <td>
+              <human-duration
+                value="${timer.sets*(timer.active+timer.resting)}"
+                unit="seconds"
+              ></human-duration>
+            </td>
+            <td>
+              <button
+                data-index="${index}"
+                @click="${eventHandlers.edit}"
+                type="button"
+              >
+                ${strings.EDIT}
+              </button>
+            </td>
+            <td>
+              <button
+                data-index="${index}"
+                @click="${eventHandlers.delete}"
+                type="button"
+              >
+                ${strings.DELETE}
+              </button>
+            </td>
+          </tr>
+          <!-- `)} -->
+        </tbody>
+      </table>
+    </div>
+    <div>
       <button @click="${eventHandlers.new}" type="button">
         ${strings.NEW_TIMER}
       </button>
