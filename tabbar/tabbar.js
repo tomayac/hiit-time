@@ -38,6 +38,7 @@ const showView = (target) => {
       page.style.display = 'none';
       if (page.id === 'new-page') {
         page.src = 'about:blank';
+        tabbar.style.display = 'block';
       }
     });
 
@@ -60,12 +61,6 @@ const showView = (target) => {
       });
     }
   }
-
-  // Update title and hash
-  const titleText = strings[page.getGlobalData().locale][target.toUpperCase()];
-  navbarTitle.textContent = titleText;
-  topWindowDocument.title = `${originalTitle} — ${titleText}`;
-  parent.location.hash = target;
 };
 
 const navigateToHash = () => {

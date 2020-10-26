@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="workout.css" />
     <script type="module" src="workout.js"></script>
   </head>
-  <body>
+  <body unresolved>
     <select
       ?disabled="${!data.timers.length}"
       class="timer-select"
@@ -20,12 +20,13 @@
         data-active="${timer.active}"
         data-resting="${timer.resting}"
       >
-        ${strings.SETS}: ${timer.sets}, ${strings.ACTIVE}: ${timer.active},
-        ${strings.REST}: ${timer.resting} (${strings.DURATION}:
-        ${Math.ceil((timer.sets*(timer.active+timer.resting))/60)}min)
+        ${timer.name}
+        (${Math.ceil((timer.sets*(timer.active+timer.resting))/60)}min)
       </option>
       ` })}
     </select>
+
+    <div><a href="/#timers" target="_top">${strings.CHANGE_TIMERS}</a></div>
 
     <div>
       <button class="start" @click="${eventHandlers.start}" type="button">
@@ -66,7 +67,5 @@
       percentage="${Math.floor(data.resting/data.activeTimer.resting*100)}"
       >${data.resting}</sl-progress-ring
     >
-
-    <div><a href="/#timers" target="_top">${strings.CHANGE_TIMERS}</a></div>
   </body>
 </html>

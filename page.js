@@ -65,6 +65,7 @@ class Page {
     this.onHide = options.onHide || (() => {});
 
     window.addEventListener('load', (e) => {
+      document.body.removeAttribute('unresolved');
       console.log('apppageload', this.name);
       this.onLoad();
     });
@@ -113,6 +114,7 @@ class Page {
    */
   newPage({ src, target, data }) {
     const newPage = window.top.document.querySelector('#new-page');
+    const tabbar = window.top.document.querySelector('iframe[name="tabbar"]');
     const navbar = window.top.document.querySelector('iframe[name="navbar"]');
     newPage.name = target;
     newPage.contentWindow.name = target;
@@ -123,6 +125,7 @@ class Page {
         parent.location.hash = target;
         const event = new CustomEvent('apppageshow', { detail: 'navbar' });
         navbar.contentWindow.dispatchEvent(event);
+        tabbar.style.display = 'none';
       },
       { once: true }
     );

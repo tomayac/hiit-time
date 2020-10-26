@@ -11,6 +11,25 @@
 
 body {
   margin: 0;
-  min-height: var(--100vh, 100vh);
+  height: var(--100vh, 100vh);
+  max-height: var(--100vh, 100vh);
   width: 100vw;
+  max-width: 100vw;
+  font-size: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+input,
+select,
+button {
+  font-size: 100%;
+}
+
+[unresolved] {
+  visibility: hidden;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
 }

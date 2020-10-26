@@ -1,4 +1,5 @@
 body {
+  overflow: hidden;
   display: grid;
   grid-template-areas:
     'navbar'
@@ -20,8 +21,16 @@ iframe {
 
 #navbar,
 #tabbar {
-  height: 49pt;
   user-select: none;
+  overflow: hidden;
+}
+
+#navbar {
+  height: 45pt;
+}
+
+#tabbar {
+  height: 49pt;
 }
 
 #pages {
@@ -32,4 +41,5 @@ iframe {
 
 #pages iframe {
   display: none;
+  height: 100%;
 }

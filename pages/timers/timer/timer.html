@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="timer.css" />
     <script type="module" src="timer.js"></script>
   </head>
-  <body>
+  <body unresolved>
     <div>
       <label for="name">${strings.NAME}</label>
       <input
@@ -15,7 +15,7 @@
         name="name"
         id="name"
         pattern="\w+"
-        value="${data.name}"
+        value="${data.name || ''}"
       />
     </div>
 

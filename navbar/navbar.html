@@ -7,15 +7,15 @@
     <link rel="stylesheet" href="navbar.css" />
     <script type="module" src="navbar.js"></script>
   </head>
-  <body>
+  <body unresolved>
     <div>
       ${top.document.querySelector('#new-page').style.display === 'block' ?
-      html`<button type="button" @click="${eventHandlers.back}">
-        <h1>❮</h1></button
+      html`<a href="#" @click="${eventHandlers.back}">
+        <h1>❮</h1></a
       >` : html`
       <h1>${strings.TITLE}</h1>
       ` }
-      <span id="title"></span>
+      <span>${strings[top.window.location.hash.substr(1).toUpperCase()]}</span>
     </div>
   </body>
 </html>

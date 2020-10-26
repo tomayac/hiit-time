@@ -2,6 +2,9 @@ import Page from '/page.js';
 
 const page = new Page({
   eventHandlers: {
-    back: () => parent.history.back(),
-  },
+    back: (e) => {
+      e.preventDefault();
+      parent.history.back();
+    },
+  }
 });
