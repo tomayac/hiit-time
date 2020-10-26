@@ -50,7 +50,7 @@ const page = new Page({
   },
 
   onLoad() {
-    /*
+    // Prefetch timer page.
     ['html', 'css', 'js'].forEach((extension) => {
       const link = document.createElement('link');
       link.rel = 'prefetch';
@@ -59,6 +59,6 @@ const page = new Page({
         link.as = extension === 'css' ? 'style' : 'script';
       }
       document.head.appendChild(link);
-    });*/
+    });
   },
 });
