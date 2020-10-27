@@ -16,7 +16,7 @@
 
 // @license © 2020 Google LLC. Licensed under the Apache License, Version 2.0.
 
-import strings from '/strings.js';
+import strings from './strings.js';
 
 window.top._store = window.top._store || {
   global: {

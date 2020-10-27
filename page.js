@@ -16,10 +16,10 @@
 
 // @license © 2020 Google LLC. Licensed under the Apache License, Version 2.0.
 
-import DataStore from '/datastore.js';
+import DataStore from './datastore.js';
 // eslint-disable-next-line no-unused-vars
-import { html, render } from '/node_modules/lit-html/lit-html.js';
-import strings from '/strings.js';
+import { html, render } from './node_modules/lit-html/lit-html.js';
+import strings from './strings.js';
 
 const dataStore = new DataStore();
 

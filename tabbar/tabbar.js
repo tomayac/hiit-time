@@ -16,8 +16,8 @@
 
 // @license © 2020 Google LLC. Licensed under the Apache License, Version 2.0.
 
-import Page from '/page.js';
-import strings from '/strings.js';
+import Page from '../page.js';
+import strings from '../strings.js';
 
 const topWindowDocument = window.top.document;
 const navbar = topWindowDocument.querySelector('iframe[name="navbar"]');

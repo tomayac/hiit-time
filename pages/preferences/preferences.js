@@ -16,7 +16,7 @@
 
 // @license © 2020 Google LLC. Licensed under the Apache License, Version 2.0.
 
-import Page from '/page.js';
+import Page from '../../page.js';
 
 // eslint-disable-next-line no-unused-vars
 const page = new Page({

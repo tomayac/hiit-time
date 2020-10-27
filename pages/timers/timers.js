@@ -1,6 +1,6 @@
-import Page from '/page.js';
-import strings from '/strings.js';
-import '/components/human-duration/human-duration.js';
+import Page from '../../page.js';
+import strings from '../../strings.js';
+import '../../components/human-duration/human-duration.js';
 
 // eslint-disable-next-line no-unused-vars
 const page = new Page({
@@ -17,7 +17,7 @@ const page = new Page({
     edit(e) {
       const index = parseInt(e.target.dataset.index, 10);
       page.newPage({
-        src: '/pages/timers/timer/timer.html',
+        src: './pages/timers/timer/timer.html',
         target: 'timer',
         data: {
           ...page.getData().timers[index],
@@ -39,12 +39,13 @@ const page = new Page({
     new(e) {
       const length = page.getData().timers.length;
       page.newPage({
-        src: '/pages/timers/timer/timer.html',
+        src: './pages/timers/timer/timer.html',
         target: 'timer',
         data: {
           sets: 1,
           active: 1,
           resting: 1,
+          name: strings[page.getGlobalData().locale].NEW_TIMER,
           index: length,
         },
       });
@@ -62,7 +63,7 @@ const page = new Page({
     ['html', 'css', 'js'].forEach((extension) => {
       const link = document.createElement('link');
       link.rel = 'prefetch';
-      link.href = `/pages/timers/timer/timer.${extension}`;
+      link.href = `./timer/timer.${extension}`;
       if (extension !== 'html') {
         link.as = extension === 'css' ? 'style' : 'script';
       }

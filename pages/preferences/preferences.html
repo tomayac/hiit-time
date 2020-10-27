@@ -4,9 +4,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <base target="_top" />
-    <link rel="stylesheet" href="/common.css" />
-    <link rel="stylesheet" href="preferences.css" />
-    <script type="module" src="preferences.js"></script>
+    <link rel="stylesheet" href="../../common.css" />
+    <link rel="stylesheet" href="./preferences.css" />
+    <script type="module" src="./preferences.js"></script>
   </head>
   <body unresolved>
     <main lang="${global.locale}">
@@ -38,7 +38,7 @@
           @input="${eventHandlers.selectLanguage}"
         >
           ${global.languages.map((language) => { return html`
-          <option value="${language}">${strings[language]}</option>
+          <option .value="${language}">${strings[language]}</option>
           ` })}
         </select>
       </div>

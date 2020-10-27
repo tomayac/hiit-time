@@ -1,5 +1,5 @@
-import Page from '/page.js';
-import '/components/human-duration/human-duration.js';
+import Page from '../../../page.js';
+import '../../../components/human-duration/human-duration.js';
 
 // eslint-disable-next-line no-unused-vars
 const page = new Page({
