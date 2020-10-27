@@ -4,7 +4,7 @@
   "description": "HIIT time application",
   "scripts": {
     "start": "npx http-server",
-    "lint": "npx eslint . --ext .js,.mjs --fix --ignore-pattern dist/ --ignore-pattern lit-html/ --ignore-pattern shoelace.esm.js",
+    "lint": "npx eslint . --ext .js,.mjs --fix --ignore-pattern dist/ --ignore-pattern lit-html/ --ignore-pattern shoelace/",
     "fix": "npx prettier --write .",
     "copy": "shx cp -r node_modules/lit-html . && shx cp -r node_modules/@shoelace-style/shoelace/dist/shoelace .",
     "prepare": "npm run lint && npm run fix && npm run copy"
