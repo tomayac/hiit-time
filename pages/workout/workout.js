@@ -17,7 +17,7 @@
 // @license © 2020 Google LLC. Licensed under the Apache License, Version 2.0.
 
 import Page from '../../page.js';
-import '../../node_modules/@shoelace-style/shoelace/dist/shoelace/shoelace.esm.js';
+import './shoelace.esm.js';
 import '../../components/human-duration/human-duration.js';
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
