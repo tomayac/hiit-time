@@ -1,0 +1,1 @@
+function t(t){const n=t?t.assignedNodes({flatten:!0}):[];let e="";return[...n].map(t=>{t.nodeType===Node.TEXT_NODE&&(e+=t.textContent)}),e}function n(t,n){return null!==t.querySelector(`[slot="${n}"]`)}export{t as g,n as h}
