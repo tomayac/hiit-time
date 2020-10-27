@@ -29,7 +29,7 @@
           .value="${data.sets}"
         />
 
-        <label for="active">${strings.ACTIVE}</label>
+        <label for="active">${strings.ACTIVE} (${strings.SEC})</label>
         <input
           @input="${eventHandlers.activeInput}"
           name="active"
@@ -38,7 +38,7 @@
           .value="${data.active}"
         />
 
-        <label for="resting">${strings.REST}</label>
+        <label for="resting">${strings.REST} (${strings.SEC}</label>
         <input
           @input="${eventHandlers.restingInput}"
           name="resting"

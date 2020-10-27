@@ -26,8 +26,8 @@
           <tr>
             <td>${timer.name}</td>
             <td class="number">${timer.sets}</td>
-            <td class="number">${timer.active}</td>
-            <td class="number">${timer.resting}</td>
+            <td class="number">${timer.active}${strings.SEC}</td>
+            <td class="number">${timer.resting}${strings.SEC}</td>
             <td class="number">
               <human-duration
                 value="${timer.sets*(timer.active+timer.resting)}"
