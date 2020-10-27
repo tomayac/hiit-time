@@ -12,12 +12,14 @@ td.number {
   text-align: end;
 }
 
+th,
 tr:nth-child(even) {
   background-color: #eee;
 }
 
 @media (prefers-color-scheme: dark) {
+  th,
   tr:nth-child(even) {
-    background-color: #111;
+    background-color: #222;
   }
 }

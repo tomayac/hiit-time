@@ -1,7 +1,7 @@
 form {
   display: grid;
   grid-template-columns: auto 1fr;
-  grid-gap: 1rem;
+  grid-gap: 0.5rem;
   margin-block-end: 1rem;
 }
 
@@ -10,8 +10,7 @@ label {
   grid-column: 1 / 2;
 }
 
-input,
-button {
+input {
   grid-column: 2 / 3;
 }
 

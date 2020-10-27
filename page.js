@@ -115,12 +115,12 @@ class Page {
    * @memberof Page
    */
   newPage({ src, target, data }) {
-    const newPage = topWindowDocument.querySelector('#new-page');
+    const newIframe = topWindowDocument.querySelector('#new-page');
     const tabbar = topWindowDocument.querySelector('iframe[name="tabbar"]');
     const navbar = topWindowDocument.querySelector('iframe[name="navbar"]');
-    newPage.name = target;
-    newPage.contentWindow.name = target;
-    newPage.addEventListener(
+    newIframe.name = target;
+    newIframe.contentWindow.name = target;
+    newIframe.addEventListener(
       'load',
       () => {
         this.setPageData(target, data);
@@ -130,10 +130,15 @@ class Page {
         navbar.contentWindow.dispatchEvent(event);
         // Make the tabbar disappear.
         tabbar.style.display = 'none';
+        // Communicate the current theme color.
+        newIframe.contentWindow.document.documentElement.style.setProperty(
+          '--theme-color',
+          this.getGlobalData().theme
+        );
       },
       { once: true }
     );
-    newPage.src = src;
+    newIframe.src = src;
   }
 
   /**

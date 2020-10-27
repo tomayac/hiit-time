@@ -39,7 +39,10 @@ window.name = 'index';
 // eslint-disable-next-line no-unused-vars
 const page = new Page({
   async onLoad() {
-    await navigator.serviceWorker.register('./serviceworker.js');
+    page.setGlobalData({ theme: 'hsla(208, 79%, 51%, 1)' });
+    if ('serviceWorker' in navigator) {
+      await navigator.serviceWorker.register('./serviceworker.js');
+    }
     if (
       /\b(iPad|iPhone|iPod)\b/.test(navigator.userAgent) &&
       !matchMedia('(display-mode: standalone)').matches

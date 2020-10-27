@@ -1,5 +1,15 @@
 @import '../../shoelace/shoelace.css';
 
+.timer-selection {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+select {
+  flex-grow: 1;
+}
+
 .progress-ring-caption,
 .progress-rings {
   display: flex;
@@ -14,6 +24,31 @@
   margin-block-start: 2rem;
 }
 
+@media (orientation: landscape) {
+  .progress-rings {
+    flex-direction: row;
+  }
+}
+
 div {
   margin-block-end: 1rem;
+}
+
+sl-progress-ring {
+  stroke-width: 25;
+}
+
+sl-progress-ring.sets {
+  --track-color: hsla(208, 100%, 90%, 1);
+  --indicator-color: hsla(208, 79%, 51%, 1);
+}
+
+sl-progress-ring.active {
+  --track-color: hsla(96, 62%, 90%, 1);
+  --indicator-color: hsla(96, 62%, 30%, 1);
+}
+
+sl-progress-ring.resting {
+  --track-color: hsla(7, 79%, 90%, 1);
+  --indicator-color: hsla(7, 79%, 51%, 1);
 }

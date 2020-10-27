@@ -11,14 +11,13 @@ a {
   height: 100%;
   flex-grow: 1;
   text-decoration: none;
-  color: ButtonText;
-  background-color: ButtonFace;
+  color: #000;
+  background-color: var(--theme-color);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .highlight {
-  color: HighlightText;
-  background-color: Highlight;
+  color: #fff;
 }

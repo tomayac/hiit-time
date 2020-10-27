@@ -1,19 +1,31 @@
 body {
-  background-color: ButtonFace;
+  background-color: var(--theme-color);
 }
 
 h1 {
+  color: #fff;
   display: inline-block;
   position: absolute;
+  margin: 0;
   left: var(--padding);
+  bottom: var(--padding);
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
 }
 
 h1:dir(rtl) {
   right: var(--padding);
 }
 
+span {
+  color: #fff;
+}
+
 main {
-  align-items: center;
+  align-items: flex-end;
   display: flex;
   justify-content: center;
   height: 100%;

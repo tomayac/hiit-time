@@ -18,11 +18,18 @@
 
 import Page from '../../page.js';
 
+const topWindowDocument = top.window.document;
+
 // eslint-disable-next-line no-unused-vars
 const page = new Page({
   data: {
     sound: true,
     speak: true,
+    themes: [
+      'hsla(208, 79%, 51%, 1)',
+      'hsla(96, 62%, 30%, 1)',
+      'hsla(7, 79%, 51%, 1)',
+    ],
   },
 
   eventHandlers: {
@@ -38,5 +45,36 @@ const page = new Page({
       const selectedOption = e.target.options[e.target.options.selectedIndex];
       page.setGlobalData({ locale: selectedOption.value });
     },
+
+    selectTheme(e) {
+      console.log(e);
+      const selectedOption = e.target.options[e.target.options.selectedIndex];
+      page.shared.updateTheme(selectedOption.value);
+    },
+  },
+
+  shared: {
+    updateTheme(value) {
+      page.setGlobalData({ theme: value });
+      topWindowDocument.documentElement.style.setProperty(
+        '--theme-color',
+        value
+      );
+      topWindowDocument.head.querySelector(
+        'meta[name="theme-color"]'
+      ).content = value;
+      const iframes = Array.from(topWindowDocument.querySelectorAll('iframe'));
+      iframes.forEach((iframe) => {
+        iframe.contentWindow.document.documentElement.style.setProperty(
+          '--theme-color',
+          value
+        );
+      });
+    },
+  },
+
+  onLoad() {
+    const theme = page.getGlobalData().theme;
+    page.shared.updateTheme(theme);
   },
 });

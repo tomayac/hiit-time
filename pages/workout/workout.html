@@ -10,7 +10,7 @@
   </head>
   <body unresolved>
     <main lang="${global.locale}">
-      <div>
+      <div class="timer-selection">
         <label for="timer">${strings.TIMER}</label>
         <select
           id="timer"
@@ -29,9 +29,8 @@
           </option>
           ` })}
         </select>
-      </div>
-      <div>
-        <a class="button" href="../../#timers">${strings.CHANGE_TIMERS}</a>
+
+        <a class="button" href="../../#timers">${strings.EDIT}</a>
       </div>
 
       <div class="progress-rings-container">
@@ -49,6 +48,7 @@
 
         <div class="progress-rings">
           <sl-progress-ring
+            class="sets"
             percentage="${Math.floor(data.sets/data.activeTimer.sets*100)}"
           >
             <div class="progress-ring-caption">
@@ -58,6 +58,7 @@
           </sl-progress-ring>
 
           <sl-progress-ring
+            class="active"
             percentage="${Math.floor(data.active/data.activeTimer.active*100)}"
             ><div class="progress-ring-caption">
               <span>${strings.ACTIVE}</span>
@@ -66,6 +67,7 @@
           </sl-progress-ring>
 
           <sl-progress-ring
+            class="resting"
             percentage="${Math.floor(data.resting/data.activeTimer.resting*100)}"
             ><div class="progress-ring-caption">
               <span>${strings.REST}</span>

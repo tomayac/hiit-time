@@ -22,6 +22,7 @@ window.top._store = window.top._store || {
   global: {
     languages: Object.keys(strings),
     locale: 'en-US',
+    theme: 'hsla(208, 79%, 51%, 1)',
   },
 };
 

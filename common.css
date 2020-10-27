@@ -2,6 +2,7 @@
   color-scheme: dark light;
   font-family: system-ui, sans-serif;
   --padding: 0.25rem;
+  --theme-color: unset;
 }
 
 *,
@@ -46,7 +47,7 @@ button,
 .button {
   border: 0;
   border-radius: 0.25rem;
-  background: #1e88e5;
+  background: var(--theme-color);
   color: white;
   white-space: nowrap;
   text-decoration: none;

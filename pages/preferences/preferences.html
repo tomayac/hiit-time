@@ -10,34 +10,39 @@
   </head>
   <body unresolved>
     <main lang="${global.locale}">
-      <div>
+      <form>
+        <label for="sound">${strings.SOUNDS}</label>
         <input
           type="checkbox"
           id="sound"
           ?checked="${data.sound}"
           @change="${eventHandlers.toggleSound}"
         />
-        <label for="sound">${strings.SOUNDS}</label>
-      </div>
 
-      <div>
+        <label for="speak">${strings.SPEAK}</label>
         <input
           type="checkbox"
           id="speak"
           ?checked="${data.speak}"
           @change="${eventHandlers.toggleSpeak}"
         />
-        <label for="speak">${strings.SPEAK}</label>
-      </div>
 
-      <div>
         <label for="language">${strings.LANGUAGE}</label>
         <select id="language" @input="${eventHandlers.selectLanguage}">
           ${global.languages.map((language) => { return html`
           <option .value="${language}">${strings[language]}</option>
           ` })}
         </select>
-      </div>
+
+        <label for="theme">${strings.THEME}</label>
+        <select id="theme" @input="${eventHandlers.selectTheme}">
+          ${data.themes.map((theme, index) => { return html`
+          <option ?selected="${index===0}" .value="${theme}">
+            ${strings[theme]}
+          </option>
+          ` })}
+        </select>
+      </form>
     </main>
   </body>
 </html>
