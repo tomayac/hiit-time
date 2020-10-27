@@ -8,9 +8,8 @@ main {
 }
 
 a {
-  width: calc(100% / 3);
   height: 100%;
-  border: solid 1px #000;
+  flex-grow: 1;
   text-decoration: none;
   color: ButtonText;
   background-color: ButtonFace;

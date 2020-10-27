@@ -1,5 +1,23 @@
 table {
   width: 100%;
-  table-layout: fixed;
-  word-break: break-word;
+  border: none;
+  margin-block-end: 1rem;
+}
+
+th {
+  text-align: start;
+}
+
+td.number {
+  text-align: end;
+}
+
+tr:nth-child(even) {
+  background-color: #eee;
+}
+
+@media (prefers-color-scheme: dark) {
+  tr:nth-child(even) {
+    background-color: #111;
+  }
 }

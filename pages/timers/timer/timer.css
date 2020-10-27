@@ -1,0 +1,20 @@
+form {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-gap: 1rem;
+  margin-block-end: 1rem;
+}
+
+label {
+  text-align: end;
+  grid-column: 1 / 2;
+}
+
+input,
+button {
+  grid-column: 2 / 3;
+}
+
+div {
+  margin-block-end: 1rem;
+}

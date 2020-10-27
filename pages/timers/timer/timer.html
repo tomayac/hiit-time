@@ -10,7 +10,7 @@
   </head>
   <body unresolved>
     <main lang="${global.locale}">
-      <div>
+      <form>
         <label for="name">${strings.NAME}</label>
         <input
           @input="${eventHandlers.nameInput}"
@@ -19,9 +19,7 @@
           minlength="1"
           .value="${data.name}"
         />
-      </div>
 
-      <div>
         <label for="sets">${strings.SETS}</label>
         <input
           @input="${eventHandlers.setsInput}"
@@ -30,9 +28,7 @@
           pattern="[1-9][0-9]*"
           .value="${data.sets}"
         />
-      </div>
 
-      <div>
         <label for="active">${strings.ACTIVE}</label>
         <input
           @input="${eventHandlers.activeInput}"
@@ -41,9 +37,7 @@
           pattern="[1-9][0-9]*"
           .value="${data.active}"
         />
-      </div>
 
-      <div>
         <label for="resting">${strings.REST}</label>
         <input
           @input="${eventHandlers.restingInput}"
@@ -52,7 +46,7 @@
           pattern="[1-9][0-9]*"
           .value="${data.resting}"
         />
-      </div>
+      </form>
 
       <div>
         ${strings.DURATION}
@@ -61,7 +55,6 @@
           unit="seconds"
         ></human-duration>
       </div>
-
       <div>
         <button @click="${eventHandlers.save}" type="button">
           ${strings.SAVE}

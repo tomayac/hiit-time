@@ -25,10 +25,10 @@
           <!-- ${data.timers.map((timer, index) => html` -->
           <tr>
             <td>${timer.name}</td>
-            <td>${timer.sets}</td>
-            <td>${timer.active}</td>
-            <td>${timer.resting}</td>
-            <td>
+            <td class="number">${timer.sets}</td>
+            <td class="number">${timer.active}</td>
+            <td class="number">${timer.resting}</td>
+            <td class="number">
               <human-duration
                 value="${timer.sets*(timer.active+timer.resting)}"
                 unit="seconds"

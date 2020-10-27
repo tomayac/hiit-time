@@ -3,10 +3,18 @@ body {
 }
 
 h1 {
-  color: CanvasText;
   display: inline-block;
+  position: absolute;
+  left: var(--padding);
 }
 
-#title {
-  text-transform: capitalize;
+h1:dir(rtl) {
+  right: var(--padding);
+}
+
+main {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 100%;
 }

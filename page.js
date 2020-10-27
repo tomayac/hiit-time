@@ -98,8 +98,8 @@ class Page {
   renderPage() {
     render(
       this.template(
-        this.getData(),
-        this.getGlobalData(),
+        this.getData() || {},
+        this.getGlobalData() || {},
         this.eventHandlers,
         this.strings
       ),

@@ -31,11 +31,8 @@
       </div>
 
       <div>
-        <label for="languages">${strings.LANGUAGES}</label>
-        <select
-          class="language-select"
-          @input="${eventHandlers.selectLanguage}"
-        >
+        <label for="language">${strings.LANGUAGE}</label>
+        <select id="language" @input="${eventHandlers.selectLanguage}">
           ${global.languages.map((language) => { return html`
           <option .value="${language}">${strings[language]}</option>
           ` })}
