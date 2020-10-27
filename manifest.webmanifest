@@ -10,7 +10,7 @@
   "lang": "en",
   "icons": [
     {
-      "src": "/favicon.svg",
+      "src": "./favicon.svg",
       "sizes": "144x144",
       "type": "image/svg+xml"
     }

@@ -4,8 +4,10 @@
   "description": "HIIT time application",
   "scripts": {
     "start": "npx http-server",
-    "lint": "npx eslint . --ext .js,.mjs --fix --ignore-pattern dist/",
-    "fix": "npx prettier --write ."
+    "lint": "npx eslint . --ext .js,.mjs --fix --ignore-pattern dist/ --ignore-pattern lit-html/ --ignore-pattern shoelace.esm.js",
+    "fix": "npx prettier --write .",
+    "copy": "shx cp -r node_modules/lit-html . && shx cp node_modules/@shoelace-style/shoelace/dist/shoelace/shoelace.esm.js ./pages/workout && shx cp node_modules/@shoelace-style/shoelace/dist/shoelace/shoelace.css ./pages/workout",
+    "prepare": "npm run lint && npm run fix && npm run copy"
   },
   "repository": {
     "type": "git",
@@ -21,11 +23,12 @@
   "author": "Thomas Steiner (tomac@google.com)",
   "license": "Apache-2.0",
   "devDependencies": {
-    "http-server": "^0.12.3",
-    "prettier": "^2.1.2",
-    "eslint": "^7.11.0",
+    "eslint": "^7.12.1",
     "eslint-config-google": "^0.14.0",
     "eslint-config-prettier": "^6.14.0",
+    "http-server": "^0.12.3",
+    "prettier": "^2.1.2",
+    "shx": "^0.3.3",
     "terser": "^5.3.8"
   },
   "eslintConfig": {

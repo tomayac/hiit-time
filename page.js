@@ -18,7 +18,7 @@
 
 import DataStore from './datastore.js';
 // eslint-disable-next-line no-unused-vars
-import { html, render } from './node_modules/lit-html/lit-html.js';
+import { html, render } from './lit-html/lit-html.js';
 import strings from './strings.js';
 
 const dataStore = new DataStore();
