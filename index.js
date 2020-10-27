@@ -40,5 +40,11 @@ window.name = 'index';
 const page = new Page({
   async onLoad() {
     await navigator.serviceWorker.register('./serviceworker.js');
+    if (
+      /\b(iPad|iPhone|iPod)\b/.test(navigator.userAgent) &&
+      !matchMedia('(display-mode: standalone)').matches
+    ) {
+      import('https://unpkg.com/pwacompat');
+    }
   },
 });
