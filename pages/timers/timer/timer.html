@@ -1,72 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <base target="_top" />
     <link rel="stylesheet" href="/common.css" />
     <link rel="stylesheet" href="timer.css" />
     <script type="module" src="timer.js"></script>
   </head>
   <body unresolved>
-    <div>
-      <label for="name">${strings.NAME}</label>
-      <input
-        @input="${eventHandlers.nameInput}"
-        name="name"
-        id="name"
-        pattern="\w+"
-        value="${data.name || ''}"
-      />
-    </div>
+    <main lang="${global.locale}">
+      <div>
+        <label for="name">${strings.NAME}</label>
+        <input
+          @input="${eventHandlers.nameInput}"
+          name="name"
+          id="name"
+          pattern="\w+"
+          value="${data.name || ''}"
+        />
+      </div>
 
-    <div>
-      <label for="sets">${strings.SETS}</label>
-      <input
-        @input="${eventHandlers.setsInput}"
-        name="sets"
-        id="sets"
-        pattern="[1-9][0-9]*"
-        value="${data.sets}"
-      />
-    </div>
+      <div>
+        <label for="sets">${strings.SETS}</label>
+        <input
+          @input="${eventHandlers.setsInput}"
+          name="sets"
+          id="sets"
+          pattern="[1-9][0-9]*"
+          value="${data.sets}"
+        />
+      </div>
 
-    <div>
-      <label for="active">${strings.ACTIVE}</label>
-      <input
-        @input="${eventHandlers.activeInput}"
-        name="active"
-        id="active"
-        pattern="[1-9][0-9]*"
-        value="${data.active}"
-      />
-    </div>
+      <div>
+        <label for="active">${strings.ACTIVE}</label>
+        <input
+          @input="${eventHandlers.activeInput}"
+          name="active"
+          id="active"
+          pattern="[1-9][0-9]*"
+          value="${data.active}"
+        />
+      </div>
 
-    <div>
-      <label for="resting">${strings.REST}</label>
-      <input
-        @input="${eventHandlers.restingInput}"
-        name="resting"
-        id="resting"
-        pattern="[1-9][0-9]*"
-        value="${data.resting}"
-      />
-    </div>
+      <div>
+        <label for="resting">${strings.REST}</label>
+        <input
+          @input="${eventHandlers.restingInput}"
+          name="resting"
+          id="resting"
+          pattern="[1-9][0-9]*"
+          value="${data.resting}"
+        />
+      </div>
 
-    <div>
-      ${strings.DURATION}
-      <human-duration
-        value="${data.sets*(data.active+data.resting)}"
-        unit="seconds"
-      ></human-duration>
-    </div>
+      <div>
+        ${strings.DURATION}
+        <human-duration
+          value="${data.sets*(data.active+data.resting)}"
+          unit="seconds"
+        ></human-duration>
+      </div>
 
-    <div>
-      <button @click="${eventHandlers.save}" type="button">
-        ${strings.SAVE}
-      </button>
-      <button @click="${eventHandlers.cancel}" type="button">
-        ${strings.CANCEL}
-      </button>
-    </div>
+      <div>
+        <button @click="${eventHandlers.save}" type="button">
+          ${strings.SAVE}
+        </button>
+        <button @click="${eventHandlers.cancel}" type="button">
+          ${strings.CANCEL}
+        </button>
+      </div>
+    </main>
   </body>
 </html>

@@ -20,44 +20,72 @@ import Page from '/page.js';
 import strings from '/strings.js';
 
 const topWindowDocument = window.top.document;
-let originalTitle = null;
 const navbar = topWindowDocument.querySelector('iframe[name="navbar"]');
-const navbarTitle = navbar.contentDocument.querySelector('#title');
 const tabbar = topWindowDocument.querySelector('iframe[name="tabbar"]');
+
+// Dynamically populate the tabbar based on the pages in `index.html`.
+const populateTabbar = () => {
+  const main = document.querySelector('main');
+  topWindowDocument
+    .querySelectorAll('#pages iframe:not([name="new-page"])')
+    .forEach((iframe) => {
+      const anchor = document.createElement('a');
+      anchor.href = `/#${iframe.name}`;
+      anchor.setAttribute(
+        'class',
+        "${window.top.location.hash==='#" + iframe.name + "'?'highlight':''}"
+      );
+      anchor.textContent = '${strings.' + iframe.name.toUpperCase() + '}';
+      main.append(anchor);
+    });
+};
+populateTabbar();
 
 const showView = (target) => {
   // Hide all other pages.
-  const pages = Array.from(topWindowDocument.querySelectorAll('#pages iframe'));
-  pages
-    .filter((page) => page.name !== target)
-    .forEach((page) => {
-      if (page.style.display === 'block') {
-        const event = new CustomEvent('apppagehide', { detail: page.name });
-        page.contentWindow.dispatchEvent(event);
+  const iframes = Array.from(
+    topWindowDocument.querySelectorAll('#pages iframe')
+  );
+  iframes
+    .filter((iframe) => iframe.name !== target)
+    .forEach((iframe) => {
+      // Send the `apppagehide` event.
+      if (iframe.style.display === 'block') {
+        const event = new CustomEvent('apppagehide', { detail: iframe.name });
+        iframe.contentWindow.dispatchEvent(event);
       }
-      page.style.display = 'none';
-      if (page.id === 'new-page') {
-        page.src = 'about:blank';
+      iframe.style.display = 'none';
+      // This is for hiding the new page placeholder.
+      // Showing it is handled in `page.js`.
+      if (iframe.id === 'new-page') {
+        // Reset the new page placeholder's URL.
+        iframe.src = 'about:blank';
+        // Show the tabbar again.
         tabbar.style.display = 'block';
       }
     });
 
   // Show the desired page.
-  const targetPage = pages.find((page) => page.name === target);
-  if (targetPage) {
-    const sendAppPageShow = () => {
-      const event1 = new CustomEvent('apppageshow', { detail: target });
-      targetPage.contentWindow.dispatchEvent(event1);
-      const event2 = new CustomEvent('apppageshow', { detail: 'navbar' });
-      tabbar.contentWindow.dispatchEvent(event2);
+  const targetIframe = iframes.find((iframe) => iframe.name === target);
+  if (targetIframe) {
+    const sendAppPageShowEvents = () => {
+      // Inform the tabbar and the navbar of the shown page.
+      [targetIframe, tabbar, navbar].forEach((iframe) => {
+        const event = new CustomEvent('apppageshow', { detail: iframe.name });
+        iframe.contentWindow.dispatchEvent(event);
+      });
+      targetIframe.style.display = 'block';
+      // Update the main window's title.
+      const localeStrings = strings[page.getGlobalData().locale];
+      topWindowDocument.title = `${localeStrings.TITLE} — ${
+        localeStrings[target.toUpperCase()]
+      }`;
     };
-    if (targetPage.contentDocument.readyState === 'complete') {
-      sendAppPageShow();
-      targetPage.style.display = 'block';
+    if (targetIframe.contentDocument.readyState === 'complete') {
+      sendAppPageShowEvents();
     } else {
-      targetPage.addEventListener('load', () => {
-        sendAppPageShow();
-        targetPage.style.display = 'block';
+      targetIframe.addEventListener('load', () => {
+        sendAppPageShowEvents();
       });
     }
   }
@@ -65,27 +93,26 @@ const showView = (target) => {
 
 const navigateToHash = () => {
   const hash = topWindowDocument.location.hash.substr(1);
-  const pageNames = Array.from(
+  const iframeNames = Array.from(
     topWindowDocument.querySelectorAll('#pages iframe')
-  ).map((page) => page.name);
-  if (hash && pageNames.includes(hash)) {
+  ).map((iframe) => iframe.name);
+  if (hash && iframeNames.includes(hash)) {
     showView(hash);
   } else {
-    showView('workout');
+    // Fall back to the first page.
+    showView(iframeNames[0]);
   }
-  const event = new CustomEvent('apppageshow', { detail: 'navbar' });
-  navbar.contentWindow.dispatchEvent(event);
 };
 
 // Restore state on load, or load default state.
 Promise.all(
   Array.from(topWindowDocument.querySelectorAll('#pages iframe')).map(
-    (page) => {
+    (iframe) => {
       return new Promise((resolve) => {
-        if (page.contentDocument.readyState === 'complete') {
+        if (iframe.contentDocument.readyState === 'complete') {
           return resolve();
         }
-        page.addEventListener('load', () => {
+        iframe.addEventListener('load', () => {
           resolve();
         });
       });
@@ -97,8 +124,5 @@ Promise.all(
 
 window.top.addEventListener('popstate', navigateToHash);
 
-const page = new Page({
-  onLoad() {
-    originalTitle = strings[page.getGlobalData().locale].TITLE;
-  },
-});
+// eslint-disable-next-line no-unused-vars
+const page = new Page({});

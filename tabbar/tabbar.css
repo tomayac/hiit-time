@@ -1,5 +1,8 @@
 body {
   padding: 0;
+}
+
+main {
   display: flex;
   height: 100vh;
 }

@@ -1,30 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <base target="_top" />
     <link rel="stylesheet" href="/common.css" />
     <link rel="stylesheet" href="tabbar.css" />
     <script type="module" src="tabbar.js"></script>
   </head>
   <body unresolved>
-    <a
-      href="/#workout"
-      class="${window.top.location.hash==='#workout'?'highlight':''}"
-      target="_top"
-      >${strings.WORKOUT}</a
-    >
-    <a
-      href="/#timers"
-      class="${window.top.location.hash==='#timers'?'highlight':''}"
-      target="_top"
-      >${strings.TIMERS}</a
-    >
-    <a
-      href="/#preferences"
-      class="${window.top.location.hash==='#preferences'?'highlight':''}"
-      target="_top"
-      >${strings.PREFERENCES}</a
-    >
+    <main lang="${global.locale}"></main>
   </body>
 </html>

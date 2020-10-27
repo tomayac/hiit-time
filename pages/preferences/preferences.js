@@ -18,6 +18,7 @@
 
 import Page from '/page.js';
 
+// eslint-disable-next-line no-unused-vars
 const page = new Page({
   data: {
     sound: true,
@@ -38,8 +39,4 @@ const page = new Page({
       page.setGlobalData({ locale: selectedOption.value });
     },
   },
-
-  onLoad() {},
-
-  onShow() {},
 });

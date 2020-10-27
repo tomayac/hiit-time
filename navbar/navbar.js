@@ -1,10 +1,11 @@
 import Page from '/page.js';
 
+// eslint-disable-next-line no-unused-vars
 const page = new Page({
   eventHandlers: {
     back: (e) => {
       e.preventDefault();
-      parent.history.back();
+      window.top.history.back();
     },
   },
 });

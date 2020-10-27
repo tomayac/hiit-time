@@ -1,6 +1,7 @@
 import Page from '/page.js';
 import '/components/human-duration/human-duration.js';
 
+// eslint-disable-next-line no-unused-vars
 const page = new Page({
   data: {
     timers: [
@@ -49,8 +50,14 @@ const page = new Page({
     },
   },
 
-  onLoad() {
+  onShow() {
     // Prefetch timer page.
+    if (
+      document.head.querySelectorAll('link[rel="prefetch"][href*="timer."]')
+        .length
+    ) {
+      return;
+    }
     ['html', 'css', 'js'].forEach((extension) => {
       const link = document.createElement('link');
       link.rel = 'prefetch';

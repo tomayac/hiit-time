@@ -23,6 +23,8 @@ import strings from '/strings.js';
 
 const dataStore = new DataStore();
 
+const topWindowDocument = window.top.document;
+
 /**
  *
  *
@@ -51,14 +53,6 @@ class Page {
     this.template = (data, global, eventHandlers, strings) =>
       eval('html`' + innerHTML + '`');
 
-    if (options.data) {
-      const data = dataStore.get();
-      data[this.name] = options.data;
-      dataStore.set(data);
-    } else {
-      this.renderPage();
-    }
-
     this.onLoad = options.onLoad || (() => {});
     this.onUnload = options.onUnload || (() => {});
     this.onShow = options.onShow || (() => {});
@@ -86,6 +80,14 @@ class Page {
       console.log('apppagehide', this.name);
       this.onHide();
     });
+
+    if (options.data) {
+      const data = dataStore.get();
+      data[this.name] = options.data;
+      dataStore.set(data);
+    } else {
+      this.renderPage();
+    }
   }
 
   /**
@@ -113,23 +115,74 @@ class Page {
    * @memberof Page
    */
   newPage({ src, target, data }) {
-    const newPage = window.top.document.querySelector('#new-page');
-    const tabbar = window.top.document.querySelector('iframe[name="tabbar"]');
-    const navbar = window.top.document.querySelector('iframe[name="navbar"]');
+    const newPage = topWindowDocument.querySelector('#new-page');
+    const tabbar = topWindowDocument.querySelector('iframe[name="tabbar"]');
+    const navbar = topWindowDocument.querySelector('iframe[name="navbar"]');
     newPage.name = target;
     newPage.contentWindow.name = target;
     newPage.addEventListener(
       'load',
       () => {
         this.setPageData(target, data);
-        parent.location.hash = target;
+        window.top.location.hash = target;
+        // Update the title of the navbar.
         const event = new CustomEvent('apppageshow', { detail: 'navbar' });
         navbar.contentWindow.dispatchEvent(event);
+        // Make the tabbar disappear.
         tabbar.style.display = 'none';
       },
       { once: true }
     );
     newPage.src = src;
+  }
+
+  /**
+   *
+   *
+   * @param {boolean} [key=false]
+   * @return {object}
+   * @memberof Page
+   */
+  getData(key = false) {
+    const data = dataStore.get();
+    return key ? data[this.name][key] : data[this.name];
+  }
+
+  /**
+   *
+   *
+   * @param {boolean} [key=false]
+   * @return {object}
+   * @memberof Page
+   */
+  async getPageData(key = false) {
+    if (!key) {
+      return;
+    }
+    const page = topWindowDocument.querySelector(
+      `#pages iframe[name="${key}"]`
+    );
+    return new Promise((resolve) => {
+      if (page.contentDocument.readyState === 'complete') {
+        const data = dataStore.get();
+        return resolve(data[key]);
+      }
+      page.addEventListener('load', () => {
+        const data = dataStore.get();
+        resolve(data[key]);
+      });
+    });
+  }
+
+  /**
+   *
+   *
+   * @return {object}
+   * @memberof Page
+   */
+  getGlobalData() {
+    const data = dataStore.get();
+    return data.global;
   }
 
   /**
@@ -151,55 +204,6 @@ class Page {
     };
     dataStore.set(data);
     this.renderPage();
-  }
-
-  /**
-   *
-   *
-   * @param {boolean} [key=false]
-   * @return {object}
-   * @memberof Page
-   */
-  getData(key = false) {
-    const data = dataStore.get();
-    return key ? data[this.name][key] : data[this.name];
-  }
-
-  /**
-   *
-   *
-   * @return {object}
-   * @memberof Page
-   */
-  getGlobalData() {
-    const data = dataStore.get();
-    return data.global;
-  }
-
-  /**
-   *
-   *
-   * @param {boolean} [key=false]
-   * @return {object}
-   * @memberof Page
-   */
-  async getPageData(key = false) {
-    if (!key) {
-      return;
-    }
-    const page = window.top.document.querySelector(
-      `#pages iframe[name="${key}"]`
-    );
-    return new Promise((resolve) => {
-      if (page.contentDocument.readyState === 'complete') {
-        const data = dataStore.get();
-        return resolve(data[key]);
-      }
-      page.addEventListener('load', () => {
-        const data = dataStore.get();
-        resolve(data[key]);
-      });
-    });
   }
 
   /**
@@ -246,15 +250,30 @@ class Page {
     };
     dataStore.set(data);
     if (newData.locale) {
-      this.strings = strings[newData.locale];
-      window.top.document
-        .querySelectorAll('iframe[name=tabbar],iframe[name=navbar]')
-        .forEach((iframe) => {
-          const event = new CustomEvent('apppageshow', { detail: iframe.name });
-          iframe.contentWindow.dispatchEvent(event);
-        });
+      this.updateLocale(newData.locale);
     }
     this.renderPage();
+  }
+
+  /**
+   *
+   *
+   * @param {*} locale
+   * @memberof Page
+   */
+  updateLocale(locale) {
+    this.strings = strings[locale];
+    // Update the main window's title.
+    topWindowDocument.title = `${this.strings.TITLE} — ${
+      this.strings[window.top.location.hash.substr(1).toUpperCase()]
+    }`;
+    // Notify navbar and tabbar of the new locale.
+    topWindowDocument
+      .querySelectorAll('iframe[name=tabbar],iframe[name=navbar]')
+      .forEach((iframe) => {
+        const event = new CustomEvent('apppageshow', { detail: iframe.name });
+        iframe.contentWindow.dispatchEvent(event);
+      });
   }
 }
 

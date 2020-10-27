@@ -78,6 +78,7 @@ const beep = (duration, frequency, volume, type, callback) => {
   oscillator.stop(audioCtx.currentTime + (duration || 500) / 1000);
 };
 
+// eslint-disable-next-line no-unused-vars
 const page = new Page({
   data: {
     activeTimer: {
@@ -240,6 +241,4 @@ const page = new Page({
   async onLoad() {
     await page.eventHandlers.reset();
   },
-
-  onShow() {},
 });

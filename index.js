@@ -16,18 +16,27 @@
 
 // @license © 2020 Google LLC. Licensed under the Apache License, Version 2.0.
 
+import Page from '/page.js';
+
 document.documentElement.style.setProperty(
   '--100vh',
   `${window.innerHeight}px`
 );
 
+let resizeTimer = null;
 window.addEventListener('resize', () => {
-  document.documentElement.style.setProperty(
-    '--100vh',
-    `${window.innerHeight}px`
-  );
+  window.clearTimeout(resizeTimer);
+  resizeTimer = window.setTimeout(() => {
+    document.documentElement.style.setProperty(
+      '--100vh',
+      `${window.innerHeight}px`
+    );
+  }, 100);
 });
 
-window.addEventListener('load', async () => {
-  await navigator.serviceWorker.register('serviceworker.js');
+// eslint-disable-next-line no-unused-vars
+const page = new Page({
+  async onLoad() {
+    await navigator.serviceWorker.register('serviceworker.js');
+  },
 });

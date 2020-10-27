@@ -1,9 +1,8 @@
 import Page from '/page.js';
 import '/components/human-duration/human-duration.js';
 
+// eslint-disable-next-line no-unused-vars
 const page = new Page({
-  data: {},
-
   eventHandlers: {
     nameInput(e) {
       const value = e.target.value;
@@ -56,14 +55,12 @@ const page = new Page({
         resting: data.resting,
         name: data.name,
       });
-      parent.history.back();
+      window.top.history.back();
       page.setData(null);
     },
 
     cancel() {
-      parent.history.back();
+      window.top.history.back();
     },
   },
-
-  onShow() {},
 });

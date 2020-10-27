@@ -4,7 +4,6 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title></title>
-    <base href="/hiit-time">
     <script type="module" src="/index.js"></script>
 
     <link rel="stylesheet" href="/common.css" />
@@ -25,30 +24,45 @@
       name="navbar"
       src="/navbar/navbar.html"
       scrolling="no"
+      lang="${global.locale}"
     ></iframe>
+
     <div id="pages">
       <iframe
         id="workout"
         name="workout"
         src="/pages/workout/workout.html"
+        lang="${global.locale}"
       ></iframe>
+
       <iframe
         id="timers"
         name="timers"
         src="/pages/timers/timers.html"
+        lang="${global.locale}"
       ></iframe>
+
       <iframe
         id="preferences"
         name="preferences"
         src="/pages/preferences/preferences.html"
+        lang="${global.locale}"
       ></iframe>
-      <iframe id="new-page" name="new-page" src="about:blank"></iframe>
+
+      <iframe
+        id="new-page"
+        name="new-page"
+        src="about:blank"
+        lang="${global.locale}"
+      ></iframe>
     </div>
+
     <iframe
       id="tabbar"
       name="tabbar"
       src="/tabbar/tabbar.html"
       scrolling="no"
+      lang="${global.locale}"
     ></iframe>
   </body>
 </html>

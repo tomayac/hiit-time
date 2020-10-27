@@ -1,39 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <base target="_top" />
     <link rel="stylesheet" href="/common.css" />
     <link rel="stylesheet" href="preferences.css" />
     <script type="module" src="preferences.js"></script>
   </head>
   <body unresolved>
-    <div>
-      <input
-        type="checkbox"
-        id="sound"
-        ?checked="${data.sound}"
-        @change="${eventHandlers.toggleSound}"
-      />
-      <label for="sound">${strings.SOUNDS}</label>
-    </div>
-    <div>
-      <input
-        type="checkbox"
-        id="speak"
-        ?disabled="${!data.sound}"
-        ?checked="${data.speak}"
-        @change="${eventHandlers.toggleSpeak}"
-      />
-      <label for="speak">${strings.SPEAK}</label>
-    </div>
-    <div>
-      <label for="languages">${strings.LANGUAGES}</label>
-      <select class="language-select" @input="${eventHandlers.selectLanguage}">
-        ${global.languages.map((language) => { return html`
-        <option value="${language}">${strings[language]}</option>
-        ` })}
-      </select>
-    </div>
+    <main lang="${global.locale}">
+      <div>
+        <input
+          type="checkbox"
+          id="sound"
+          ?checked="${data.sound}"
+          @change="${eventHandlers.toggleSound}"
+        />
+        <label for="sound">${strings.SOUNDS}</label>
+      </div>
+
+      <div>
+        <input
+          type="checkbox"
+          id="speak"
+          ?disabled="${!data.sound}"
+          ?checked="${data.speak}"
+          @change="${eventHandlers.toggleSpeak}"
+        />
+        <label for="speak">${strings.SPEAK}</label>
+      </div>
+
+      <div>
+        <label for="languages">${strings.LANGUAGES}</label>
+        <select
+          class="language-select"
+          @input="${eventHandlers.selectLanguage}"
+        >
+          ${global.languages.map((language) => { return html`
+          <option value="${language}">${strings[language]}</option>
+          ` })}
+        </select>
+      </div>
+    </main>
   </body>
 </html>
