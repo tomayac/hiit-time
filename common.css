@@ -22,7 +22,7 @@ body {
 
 @media (prefers-color-scheme: dark) {
   body {
-    color: CanvasColor;
+    color: CanvasText;
     background-color: #000;
   }
 }
