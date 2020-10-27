@@ -34,6 +34,8 @@ window.addEventListener('resize', () => {
   }, 100);
 });
 
+window.name = 'index';
+
 // eslint-disable-next-line no-unused-vars
 const page = new Page({
   async onLoad() {

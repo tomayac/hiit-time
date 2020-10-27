@@ -20,6 +20,13 @@ body {
   overflow-y: scroll;
 }
 
+@media (prefers-color-scheme: dark) {
+  body {
+    color: CanvasColor;
+    background-color: #000;
+  }
+}
+
 input,
 select,
 button {

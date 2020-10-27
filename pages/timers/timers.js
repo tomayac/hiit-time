@@ -1,4 +1,5 @@
 import Page from '/page.js';
+import strings from '/strings.js';
 import '/components/human-duration/human-duration.js';
 
 // eslint-disable-next-line no-unused-vars
@@ -26,7 +27,7 @@ const page = new Page({
     },
 
     delete(e) {
-      if (!confirm('Do you really want to delete the timer?')) {
+      if (!confirm(strings[page.getGlobalData().locale].REALLY_DELETE_TIMER)) {
         return;
       }
       const index = parseInt(e.target.dataset.index, 10);
