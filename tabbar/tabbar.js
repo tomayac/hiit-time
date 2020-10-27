@@ -30,7 +30,7 @@ const populateTabbar = () => {
     .querySelectorAll('#pages iframe:not([name="new-page"])')
     .forEach((iframe) => {
       const anchor = document.createElement('a');
-      anchor.href = `/#${iframe.name}`;
+      anchor.href = `../#${iframe.name}`;
       anchor.setAttribute(
         'class',
         "${window.top.location.hash==='#" + iframe.name + "'?'highlight':''}"
