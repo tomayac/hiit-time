@@ -17,8 +17,10 @@
 // @license © 2020 Google LLC. Licensed under the Apache License, Version 2.0.
 
 import Page from '../../page.js';
+import getTopWindow from '../../util.js';
 
-const topWindowDocument = top.window.document;
+const topWindow = getTopWindow(self);
+const topWindowDocument = topWindow.document;
 
 // eslint-disable-next-line no-unused-vars
 const page = new Page({

@@ -20,7 +20,9 @@ import Page from '../page.js';
 import strings from '../strings.js';
 import getTopWindow from '../util.js';
 
+const INDEX = 'index';
 const topWindow = getTopWindow(self);
+topWindow.name = INDEX;
 
 const topWindowDocument = topWindow.document;
 const navbar = topWindowDocument.querySelector('iframe[name="navbar"]');
@@ -34,6 +36,7 @@ const populateTabbar = () => {
     .forEach((iframe) => {
       const anchor = document.createElement('a');
       anchor.href = `../#${iframe.name}`;
+      anchor.target = INDEX;
       anchor.setAttribute(
         'class',
         "${topWindow.location.hash==='#" + iframe.name + "'?'highlight':''}"
