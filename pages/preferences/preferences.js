@@ -47,7 +47,6 @@ const page = new Page({
     },
 
     selectTheme(e) {
-      console.log(e);
       const selectedOption = e.target.options[e.target.options.selectedIndex];
       page.shared.updateTheme(selectedOption.value);
     },
