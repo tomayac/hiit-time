@@ -18,6 +18,8 @@
 
 import Page from './page.js';
 
+const INDEX = 'index';
+
 document.documentElement.style.setProperty(
   '--100vh',
   `${window.innerHeight}px`
@@ -34,7 +36,7 @@ window.addEventListener('resize', () => {
   }, 100);
 });
 
-window.name = 'index';
+window.name = INDEX;
 
 // eslint-disable-next-line no-unused-vars
 const page = new Page({

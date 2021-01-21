@@ -20,10 +20,13 @@ import DataStore from './datastore.js';
 // eslint-disable-next-line no-unused-vars
 import { html, render } from './lit-html/lit-html.js';
 import strings from './strings.js';
+import getTopWindow from './util.js';
+
+const topWindow = getTopWindow(self);
 
 const dataStore = new DataStore();
 
-const topWindowDocument = window.top.document;
+const topWindowDocument = topWindow.document;
 
 /**
  *
@@ -124,7 +127,7 @@ class Page {
       'load',
       () => {
         this.setPageData(target, data);
-        window.top.location.hash = target;
+        topWindow.location.hash = target;
         // Update the title of the navbar.
         const event = new CustomEvent('apppageshow', { detail: 'navbar' });
         navbar.contentWindow.dispatchEvent(event);
@@ -270,7 +273,7 @@ class Page {
     this.strings = strings[locale];
     // Update the main window's title.
     topWindowDocument.title = `${this.strings.TITLE} — ${
-      this.strings[window.top.location.hash.substr(1).toUpperCase()]
+      this.strings[topWindow.location.hash.substr(1).toUpperCase()]
     }`;
     // Notify navbar and tabbar of the new locale.
     topWindowDocument

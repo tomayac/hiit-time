@@ -17,8 +17,11 @@
 // @license © 2020 Google LLC. Licensed under the Apache License, Version 2.0.
 
 import strings from './strings.js';
+import getTopWindow from './util.js';
 
-window.top._store = window.top._store || {
+const topWindow = getTopWindow(self);
+
+topWindow._store = topWindow._store || {
   global: {
     languages: Object.keys(strings),
     locale: 'en-US',
@@ -39,7 +42,7 @@ class DataStore {
    */
   constructor(props) {
     if (props) {
-      window.top._store = props;
+      topWindow._store = props;
     }
   }
 
@@ -50,7 +53,7 @@ class DataStore {
    * @memberof DataStore
    */
   get() {
-    return window.top._store;
+    return topWindow._store;
   }
 
   /**
@@ -61,7 +64,7 @@ class DataStore {
    */
   set(props) {
     if (props) {
-      window.top._store = props;
+      topWindow._store = props;
     }
   }
 }

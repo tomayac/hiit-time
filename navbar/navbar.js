@@ -5,7 +5,7 @@ const page = new Page({
   eventHandlers: {
     back: (e) => {
       e.preventDefault();
-      window.top.history.back();
+      window.parent.history.back();
     },
   },
 });

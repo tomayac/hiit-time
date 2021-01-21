@@ -1,5 +1,8 @@
 import Page from '../../../page.js';
+import getTopWindow from '../../../util.js';
 import '../../../components/human-duration/human-duration.js';
+
+const topWindow = getTopWindow(self);
 
 // eslint-disable-next-line no-unused-vars
 const page = new Page({
@@ -55,12 +58,12 @@ const page = new Page({
         resting: data.resting,
         name: data.name,
       });
-      window.top.history.back();
+      topWindow.history.back();
       page.setData(null);
     },
 
     cancel() {
-      window.top.history.back();
+      topWindow.history.back();
     },
   },
 });

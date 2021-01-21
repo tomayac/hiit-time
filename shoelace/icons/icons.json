@@ -116,7 +116,8 @@
       "application",
       "ios",
       "android",
-      "notification"
+      "notification",
+      "square"
     ]
   },
   {
@@ -129,7 +130,8 @@
       "app",
       "application",
       "ios",
-      "android"
+      "android",
+      "square"
     ]
   },
   {
@@ -960,6 +962,30 @@
     ]
   },
   {
+    "name": "badge-3d-fill",
+    "title": "Badge 3d fill",
+    "categories": [
+      "Badges"
+    ],
+    "tags": [
+      "3d",
+      "display",
+      "dimension"
+    ]
+  },
+  {
+    "name": "badge-3d",
+    "title": "Badge 3d",
+    "categories": [
+      "Badges"
+    ],
+    "tags": [
+      "3d",
+      "display",
+      "dimension"
+    ]
+  },
+  {
     "name": "badge-4k-fill",
     "title": "Badge 4k fill",
     "categories": [
@@ -1029,6 +1055,30 @@
     ],
     "tags": [
       "advertisement"
+    ]
+  },
+  {
+    "name": "badge-ar-fill",
+    "title": "Badge ar fill",
+    "categories": [
+      "Badges"
+    ],
+    "tags": [
+      "augmented",
+      "reality",
+      "ar"
+    ]
+  },
+  {
+    "name": "badge-ar",
+    "title": "Badge ar",
+    "categories": [
+      "Badges"
+    ],
+    "tags": [
+      "augmented",
+      "reality",
+      "ar"
     ]
   },
   {
@@ -1115,6 +1165,52 @@
     "tags": [
       "voiceover",
       "accessibility"
+    ]
+  },
+  {
+    "name": "badge-vr-fill",
+    "title": "Badge vr fill",
+    "categories": [
+      "Badges"
+    ],
+    "tags": [
+      "virtual",
+      "reality",
+      "vr"
+    ]
+  },
+  {
+    "name": "badge-vr",
+    "title": "Badge vr",
+    "categories": [
+      "Badges"
+    ],
+    "tags": [
+      "virtual",
+      "reality",
+      "vr"
+    ]
+  },
+  {
+    "name": "badge-wc-fill",
+    "title": "Badge wc fill",
+    "categories": [
+      "Badges"
+    ],
+    "tags": [
+      "wash closet",
+      "wc"
+    ]
+  },
+  {
+    "name": "badge-wc",
+    "title": "Badge wc",
+    "categories": [
+      "Badges"
+    ],
+    "tags": [
+      "wash closet",
+      "wc"
     ]
   },
   {
@@ -1600,7 +1696,10 @@
     ],
     "tags": [
       "reading",
-      "book"
+      "book",
+      "label",
+      "tag",
+      "category"
     ]
   },
   {
@@ -1611,7 +1710,10 @@
     ],
     "tags": [
       "reading",
-      "book"
+      "book",
+      "label",
+      "tag",
+      "category"
     ]
   },
   {
@@ -1622,7 +1724,10 @@
     ],
     "tags": [
       "reading",
-      "book"
+      "book",
+      "label",
+      "tag",
+      "category"
     ]
   },
   {
@@ -1633,7 +1738,10 @@
     ],
     "tags": [
       "reading",
-      "book"
+      "book",
+      "label",
+      "tag",
+      "category"
     ]
   },
   {
@@ -1644,7 +1752,10 @@
     ],
     "tags": [
       "reading",
-      "book"
+      "book",
+      "label",
+      "tag",
+      "category"
     ]
   },
   {
@@ -1655,7 +1766,10 @@
     ],
     "tags": [
       "reading",
-      "book"
+      "book",
+      "label",
+      "tag",
+      "category"
     ]
   },
   {
@@ -1666,7 +1780,10 @@
     ],
     "tags": [
       "reading",
-      "book"
+      "book",
+      "label",
+      "tag",
+      "category"
     ]
   },
   {
@@ -1677,7 +1794,10 @@
     ],
     "tags": [
       "reading",
-      "book"
+      "book",
+      "label",
+      "tag",
+      "category"
     ]
   },
   {
@@ -1688,7 +1808,10 @@
     ],
     "tags": [
       "reading",
-      "book"
+      "book",
+      "label",
+      "tag",
+      "category"
     ]
   },
   {
@@ -1699,7 +1822,10 @@
     ],
     "tags": [
       "reading",
-      "book"
+      "book",
+      "label",
+      "tag",
+      "category"
     ]
   },
   {
@@ -1710,7 +1836,10 @@
     ],
     "tags": [
       "reading",
-      "book"
+      "book",
+      "label",
+      "tag",
+      "category"
     ]
   },
   {
@@ -1721,7 +1850,10 @@
     ],
     "tags": [
       "reading",
-      "book"
+      "book",
+      "label",
+      "tag",
+      "category"
     ]
   },
   {
@@ -1732,7 +1864,10 @@
     ],
     "tags": [
       "reading",
-      "book"
+      "book",
+      "label",
+      "tag",
+      "category"
     ]
   },
   {
@@ -1743,7 +1878,10 @@
     ],
     "tags": [
       "reading",
-      "book"
+      "book",
+      "label",
+      "tag",
+      "category"
     ]
   },
   {
@@ -1754,7 +1892,10 @@
     ],
     "tags": [
       "reading",
-      "book"
+      "book",
+      "label",
+      "tag",
+      "category"
     ]
   },
   {
@@ -1765,7 +1906,10 @@
     ],
     "tags": [
       "reading",
-      "book"
+      "book",
+      "label",
+      "tag",
+      "category"
     ]
   },
   {
@@ -1809,6 +1953,86 @@
     ]
   },
   {
+    "name": "border-all",
+    "title": "Border all",
+    "categories": [
+      "UI and keyboard"
+    ],
+    "tags": [
+      "borders"
+    ]
+  },
+  {
+    "name": "border-bottom",
+    "title": "Border bottom",
+    "categories": [
+      "UI and keyboard"
+    ],
+    "tags": [
+      "borders"
+    ]
+  },
+  {
+    "name": "border-center",
+    "title": "Border center",
+    "categories": [
+      "UI and keyboard"
+    ],
+    "tags": [
+      "borders"
+    ]
+  },
+  {
+    "name": "border-inner",
+    "title": "Border inner",
+    "categories": [
+      "UI and keyboard"
+    ],
+    "tags": [
+      "borders"
+    ]
+  },
+  {
+    "name": "border-left",
+    "title": "Border left",
+    "categories": [
+      "UI and keyboard"
+    ],
+    "tags": [
+      "borders"
+    ]
+  },
+  {
+    "name": "border-middle",
+    "title": "Border middle",
+    "categories": [
+      "UI and keyboard"
+    ],
+    "tags": [
+      "borders"
+    ]
+  },
+  {
+    "name": "border-outer",
+    "title": "Border outer",
+    "categories": [
+      "UI and keyboard"
+    ],
+    "tags": [
+      "borders"
+    ]
+  },
+  {
+    "name": "border-right",
+    "title": "Border right",
+    "categories": [
+      "UI and keyboard"
+    ],
+    "tags": [
+      "borders"
+    ]
+  },
+  {
     "name": "border-style",
     "title": "Border style",
     "categories": [
@@ -1820,6 +2044,16 @@
     ]
   },
   {
+    "name": "border-top",
+    "title": "Border top",
+    "categories": [
+      "UI and keyboard"
+    ],
+    "tags": [
+      "borders"
+    ]
+  },
+  {
     "name": "border-width",
     "title": "Border width",
     "categories": [
@@ -1828,6 +2062,16 @@
     "tags": [
       "borders",
       "wysiwyg"
+    ]
+  },
+  {
+    "name": "border",
+    "title": "Border",
+    "categories": [
+      "UI and keyboard"
+    ],
+    "tags": [
+      "borders"
     ]
   },
   {
@@ -1923,7 +2167,10 @@
       "Box arrows"
     ],
     "tags": [
-      "arrow"
+      "arrow",
+      "login",
+      "signin",
+      "enter"
     ]
   },
   {
@@ -1933,7 +2180,10 @@
       "Box arrows"
     ],
     "tags": [
-      "arrow"
+      "arrow",
+      "login",
+      "signin",
+      "enter"
     ]
   },
   {
@@ -1973,7 +2223,10 @@
       "Box arrows"
     ],
     "tags": [
-      "arrow"
+      "arrow",
+      "logout",
+      "signout",
+      "exit"
     ]
   },
   {
@@ -1983,7 +2236,10 @@
       "Box arrows"
     ],
     "tags": [
-      "arrow"
+      "arrow",
+      "logout",
+      "signout",
+      "exit"
     ]
   },
   {
@@ -2086,7 +2342,9 @@
       "UI and keyboard"
     ],
     "tags": [
-      "brightness"
+      "brightness",
+      "sun",
+      "weather"
     ]
   },
   {
@@ -2096,7 +2354,9 @@
       "UI and keyboard"
     ],
     "tags": [
-      "brightness"
+      "brightness",
+      "sun",
+      "weather"
     ]
   },
   {
@@ -2126,7 +2386,9 @@
       "UI and keyboard"
     ],
     "tags": [
-      "brightness"
+      "brightness",
+      "sun",
+      "weather"
     ]
   },
   {
@@ -2136,7 +2398,9 @@
       "UI and keyboard"
     ],
     "tags": [
-      "brightness"
+      "brightness",
+      "sun",
+      "weather"
     ]
   },
   {
@@ -4766,7 +5030,8 @@
     ],
     "tags": [
       "direction",
-      "map"
+      "map",
+      "location"
     ]
   },
   {
@@ -4777,7 +5042,8 @@
     ],
     "tags": [
       "direction",
-      "map"
+      "map",
+      "location"
     ]
   },
   {
@@ -4987,10 +5253,20 @@
     ]
   },
   {
+    "name": "dash-circle-dotted",
+    "title": "Dash circle dotted",
+    "categories": [
+      "Alerts, warnings, and signs"
+    ],
+    "tags": [
+      "minus"
+    ]
+  },
+  {
     "name": "dash-circle-fill",
     "title": "Dash circle fill",
     "categories": [
-      "UI and keyboard"
+      "Alerts, warnings, and signs"
     ],
     "tags": [
       "minus"
@@ -5000,7 +5276,17 @@
     "name": "dash-circle",
     "title": "Dash circle",
     "categories": [
-      "UI and keyboard"
+      "Alerts, warnings, and signs"
+    ],
+    "tags": [
+      "minus"
+    ]
+  },
+  {
+    "name": "dash-square-dotted",
+    "title": "Dash square dotted",
+    "categories": [
+      "Alerts, warnings, and signs"
     ],
     "tags": [
       "minus"
@@ -5010,7 +5296,7 @@
     "name": "dash-square-fill",
     "title": "Dash square fill",
     "categories": [
-      "UI and keyboard"
+      "Alerts, warnings, and signs"
     ],
     "tags": [
       "minus"
@@ -5020,7 +5306,7 @@
     "name": "dash-square",
     "title": "Dash square",
     "categories": [
-      "UI and keyboard"
+      "Alerts, warnings, and signs"
     ],
     "tags": [
       "minus"
@@ -5030,7 +5316,7 @@
     "name": "dash",
     "title": "Dash",
     "categories": [
-      "UI and keyboard"
+      "Alerts, warnings, and signs"
     ],
     "tags": [
       "minus"
@@ -5291,6 +5577,40 @@
     ]
   },
   {
+    "name": "disc-fill",
+    "title": "Disc fill",
+    "categories": [
+      "Media"
+    ],
+    "tags": [
+      "cd",
+      "compact disc",
+      "bluray",
+      "dvd"
+    ]
+  },
+  {
+    "name": "disc",
+    "title": "Disc",
+    "categories": [
+      "Media"
+    ],
+    "tags": [
+      "cd",
+      "compact disc",
+      "bluray",
+      "dvd"
+    ]
+  },
+  {
+    "name": "discord",
+    "title": "Discord",
+    "categories": [
+      "Social"
+    ],
+    "tags": null
+  },
+  {
     "name": "display-fill",
     "title": "Display fill",
     "categories": [
@@ -5529,6 +5849,18 @@
     ]
   },
   {
+    "name": "emoji-angry-fill",
+    "title": "Emoji angry fill",
+    "categories": [
+      "Emoji"
+    ],
+    "tags": [
+      "emoticon",
+      "anger",
+      "upset"
+    ]
+  },
+  {
     "name": "emoji-angry",
     "title": "Emoji angry",
     "categories": [
@@ -5541,6 +5873,16 @@
     ]
   },
   {
+    "name": "emoji-dizzy-fill",
+    "title": "Emoji dizzy fill",
+    "categories": [
+      "Emoji"
+    ],
+    "tags": [
+      "emoticon"
+    ]
+  },
+  {
     "name": "emoji-dizzy",
     "title": "Emoji dizzy",
     "categories": [
@@ -5548,6 +5890,18 @@
     ],
     "tags": [
       "emoticon"
+    ]
+  },
+  {
+    "name": "emoji-expressionless-fill",
+    "title": "Emoji expressionless fill",
+    "categories": [
+      "Emoji"
+    ],
+    "tags": [
+      "emoticon",
+      "neutral",
+      "unphased"
     ]
   },
   {
@@ -5563,6 +5917,17 @@
     ]
   },
   {
+    "name": "emoji-frown-fill",
+    "title": "Emoji frown fill",
+    "categories": [
+      "Emoji"
+    ],
+    "tags": [
+      "emoticon",
+      "sad"
+    ]
+  },
+  {
     "name": "emoji-frown",
     "title": "Emoji frown",
     "categories": [
@@ -5571,6 +5936,41 @@
     "tags": [
       "emoticon",
       "sad"
+    ]
+  },
+  {
+    "name": "emoji-heart-eyes-fill",
+    "title": "Emoji heart eyes fill",
+    "categories": [
+      "Emoji"
+    ],
+    "tags": [
+      "emoticon",
+      "heart",
+      "love"
+    ]
+  },
+  {
+    "name": "emoji-heart-eyes",
+    "title": "Emoji heart eyes",
+    "categories": [
+      "Emoji"
+    ],
+    "tags": [
+      "emoticon",
+      "heart",
+      "love"
+    ]
+  },
+  {
+    "name": "emoji-laughing-fill",
+    "title": "Emoji laughing fill",
+    "categories": [
+      "Emoji"
+    ],
+    "tags": [
+      "emoticon",
+      "happy"
     ]
   },
   {
@@ -5585,6 +5985,17 @@
     ]
   },
   {
+    "name": "emoji-neutral-fill",
+    "title": "Emoji neutral fill",
+    "categories": [
+      "Emoji"
+    ],
+    "tags": [
+      "emoticon",
+      "expressionless"
+    ]
+  },
+  {
     "name": "emoji-neutral",
     "title": "Emoji neutral",
     "categories": [
@@ -5593,6 +6004,28 @@
     "tags": [
       "emoticon",
       "expressionless"
+    ]
+  },
+  {
+    "name": "emoji-smile-fill",
+    "title": "Emoji smile fill",
+    "categories": [
+      "Emoji"
+    ],
+    "tags": [
+      "emoticon",
+      "happy"
+    ]
+  },
+  {
+    "name": "emoji-smile-upside-down-fill",
+    "title": "Emoji smile upside down fill",
+    "categories": [
+      "Emoji"
+    ],
+    "tags": [
+      "emoticon",
+      "sarcasm"
     ]
   },
   {
@@ -5618,6 +6051,17 @@
     ]
   },
   {
+    "name": "emoji-sunglasses-fill",
+    "title": "Emoji sunglasses fill",
+    "categories": [
+      "Emoji"
+    ],
+    "tags": [
+      "emoticon",
+      "cool"
+    ]
+  },
+  {
     "name": "emoji-sunglasses",
     "title": "Emoji sunglasses",
     "categories": [
@@ -5626,6 +6070,26 @@
     "tags": [
       "emoticon",
       "cool"
+    ]
+  },
+  {
+    "name": "emoji-wink-fill",
+    "title": "Emoji wink fill",
+    "categories": [
+      "Emoji"
+    ],
+    "tags": [
+      "emoticon"
+    ]
+  },
+  {
+    "name": "emoji-wink",
+    "title": "Emoji wink",
+    "categories": [
+      "Emoji"
+    ],
+    "tags": [
+      "emoticon"
     ]
   },
   {
@@ -5674,6 +6138,28 @@
       "email",
       "message",
       "mail"
+    ]
+  },
+  {
+    "name": "eraser-fill",
+    "title": "Eraser fill",
+    "categories": [
+      "Graphics"
+    ],
+    "tags": [
+      "erase",
+      "remove"
+    ]
+  },
+  {
+    "name": "eraser",
+    "title": "Eraser",
+    "categories": [
+      "Graphics"
+    ],
+    "tags": [
+      "erase",
+      "remove"
     ]
   },
   {
@@ -5859,6 +6345,17 @@
     ]
   },
   {
+    "name": "eyedropper",
+    "title": "Eyedropper",
+    "categories": [
+      "Graphics"
+    ],
+    "tags": [
+      "color",
+      "picker"
+    ]
+  },
+  {
     "name": "eyeglasses",
     "title": "Eyeglasses",
     "categories": [
@@ -5871,6 +6368,14 @@
       "glasses",
       "reading"
     ]
+  },
+  {
+    "name": "facebook",
+    "title": "Facebook",
+    "categories": [
+      "Social"
+    ],
+    "tags": null
   },
   {
     "name": "file-arrow-down-fill",
@@ -5918,6 +6423,32 @@
       "doc",
       "document",
       "upload"
+    ]
+  },
+  {
+    "name": "file-bar-graph-fill",
+    "title": "File bar graph fill",
+    "categories": [
+      "Files and folders"
+    ],
+    "tags": [
+      "doc",
+      "document",
+      "data",
+      "chart"
+    ]
+  },
+  {
+    "name": "file-bar-graph",
+    "title": "File bar graph",
+    "categories": [
+      "Files and folders"
+    ],
+    "tags": [
+      "doc",
+      "document",
+      "data",
+      "chart"
     ]
   },
   {
@@ -6097,6 +6628,32 @@
     ]
   },
   {
+    "name": "file-earmark-bar-graph-fill",
+    "title": "File earmark bar graph fill",
+    "categories": [
+      "Files and folders"
+    ],
+    "tags": [
+      "doc",
+      "document",
+      "data",
+      "chart"
+    ]
+  },
+  {
+    "name": "file-earmark-bar-graph",
+    "title": "File earmark bar graph",
+    "categories": [
+      "Files and folders"
+    ],
+    "tags": [
+      "doc",
+      "document",
+      "data",
+      "chart"
+    ]
+  },
+  {
     "name": "file-earmark-binary-fill",
     "title": "File earmark binary fill",
     "categories": [
@@ -6248,6 +6805,34 @@
       "presentation",
       "powerpoint",
       "keynote"
+    ]
+  },
+  {
+    "name": "file-earmark-excel-fill",
+    "title": "File earmark excel fill",
+    "categories": [
+      "Files and folders"
+    ],
+    "tags": [
+      "doc",
+      "document",
+      "spreadsheet",
+      "excel",
+      "table"
+    ]
+  },
+  {
+    "name": "file-earmark-excel",
+    "title": "File earmark excel",
+    "categories": [
+      "Files and folders"
+    ],
+    "tags": [
+      "doc",
+      "document",
+      "spreadsheet",
+      "excel",
+      "table"
     ]
   },
   {
@@ -6540,6 +7125,32 @@
     ]
   },
   {
+    "name": "file-earmark-ppt-fill",
+    "title": "File earmark ppt fill",
+    "categories": [
+      "Files and folders"
+    ],
+    "tags": [
+      "slides",
+      "presentation",
+      "powerpoint",
+      "keynote"
+    ]
+  },
+  {
+    "name": "file-earmark-ppt",
+    "title": "File earmark ppt",
+    "categories": [
+      "Files and folders"
+    ],
+    "tags": [
+      "slides",
+      "presentation",
+      "powerpoint",
+      "keynote"
+    ]
+  },
+  {
     "name": "file-earmark-richtext-fill",
     "title": "File earmark richtext fill",
     "categories": [
@@ -6658,6 +7269,28 @@
     ]
   },
   {
+    "name": "file-earmark-word-fill",
+    "title": "File earmark word fill",
+    "categories": [
+      "Files and folders"
+    ],
+    "tags": [
+      "doc",
+      "document"
+    ]
+  },
+  {
+    "name": "file-earmark-word",
+    "title": "File earmark word",
+    "categories": [
+      "Files and folders"
+    ],
+    "tags": [
+      "doc",
+      "document"
+    ]
+  },
+  {
     "name": "file-earmark-x-fill",
     "title": "File earmark x fill",
     "categories": [
@@ -6744,6 +7377,34 @@
       "presentation",
       "powerpoint",
       "keynote"
+    ]
+  },
+  {
+    "name": "file-excel-fill",
+    "title": "File excel fill",
+    "categories": [
+      "Files and folders"
+    ],
+    "tags": [
+      "doc",
+      "document",
+      "spreadsheet",
+      "excel",
+      "table"
+    ]
+  },
+  {
+    "name": "file-excel",
+    "title": "File excel",
+    "categories": [
+      "Files and folders"
+    ],
+    "tags": [
+      "doc",
+      "document",
+      "spreadsheet",
+      "excel",
+      "table"
     ]
   },
   {
@@ -7036,6 +7697,32 @@
     ]
   },
   {
+    "name": "file-ppt-fill",
+    "title": "File ppt fill",
+    "categories": [
+      "Files and folders"
+    ],
+    "tags": [
+      "slides",
+      "presentation",
+      "powerpoint",
+      "keynote"
+    ]
+  },
+  {
+    "name": "file-ppt",
+    "title": "File ppt",
+    "categories": [
+      "Files and folders"
+    ],
+    "tags": [
+      "slides",
+      "presentation",
+      "powerpoint",
+      "keynote"
+    ]
+  },
+  {
     "name": "file-richtext-fill",
     "title": "File richtext fill",
     "categories": [
@@ -7145,6 +7832,28 @@
   {
     "name": "file-text",
     "title": "File text",
+    "categories": [
+      "Files and folders"
+    ],
+    "tags": [
+      "doc",
+      "document"
+    ]
+  },
+  {
+    "name": "file-word-fill",
+    "title": "File word fill",
+    "categories": [
+      "Files and folders"
+    ],
+    "tags": [
+      "doc",
+      "document"
+    ]
+  },
+  {
+    "name": "file-word",
+    "title": "File word",
     "categories": [
       "Files and folders"
     ],
@@ -7593,7 +8302,9 @@
       "Tools"
     ],
     "tags": [
-      "tool"
+      "tool",
+      "settings",
+      "preferences"
     ]
   },
   {
@@ -7603,7 +8314,9 @@
       "Tools"
     ],
     "tags": [
-      "tool"
+      "tool",
+      "settings",
+      "preferences"
     ]
   },
   {
@@ -7613,7 +8326,9 @@
       "Tools"
     ],
     "tags": [
-      "tool"
+      "tool",
+      "settings",
+      "preferences"
     ]
   },
   {
@@ -7623,7 +8338,9 @@
       "Tools"
     ],
     "tags": [
-      "tool"
+      "tool",
+      "settings",
+      "preferences"
     ]
   },
   {
@@ -7640,8 +8357,15 @@
   {
     "name": "geo-alt-fill",
     "title": "Geo alt fill",
-    "categories": null,
-    "tags": null
+    "categories": [
+      "Geo"
+    ],
+    "tags": [
+      "geography",
+      "map",
+      "pin",
+      "location"
+    ]
   },
   {
     "name": "geo-alt",
@@ -7652,7 +8376,8 @@
     "tags": [
       "geography",
       "map",
-      "pin"
+      "pin",
+      "location"
     ]
   },
   {
@@ -7664,7 +8389,8 @@
     "tags": [
       "geography",
       "map",
-      "pin"
+      "pin",
+      "location"
     ]
   },
   {
@@ -7676,7 +8402,8 @@
     "tags": [
       "geography",
       "map",
-      "pin"
+      "pin",
+      "location"
     ]
   },
   {
@@ -7700,6 +8427,14 @@
       "present",
       "gift"
     ]
+  },
+  {
+    "name": "github",
+    "title": "GitHub",
+    "categories": [
+      "Social"
+    ],
+    "tags": null
   },
   {
     "name": "globe",
@@ -7726,6 +8461,14 @@
       "global",
       "international"
     ]
+  },
+  {
+    "name": "google",
+    "title": "Google",
+    "categories": [
+      "Social"
+    ],
+    "tags": null
   },
   {
     "name": "graph-down",
@@ -7894,6 +8637,30 @@
     ]
   },
   {
+    "name": "hand-index-fill",
+    "title": "Hand index fill",
+    "categories": [
+      "Hands"
+    ],
+    "tags": [
+      "hand",
+      "pointer",
+      "cursor"
+    ]
+  },
+  {
+    "name": "hand-index-thumb-fill",
+    "title": "Hand index thumb fill",
+    "categories": [
+      "Hands"
+    ],
+    "tags": [
+      "hand",
+      "pointer",
+      "cursor"
+    ]
+  },
+  {
     "name": "hand-index-thumb",
     "title": "Hand index thumb",
     "categories": [
@@ -7918,6 +8685,19 @@
     ]
   },
   {
+    "name": "hand-thumbs-down-fill",
+    "title": "Hand thumbs down fill",
+    "categories": [
+      "Hands"
+    ],
+    "tags": [
+      "hand",
+      "pointer",
+      "thumbs-down",
+      "-1"
+    ]
+  },
+  {
     "name": "hand-thumbs-down",
     "title": "Hand thumbs down",
     "categories": [
@@ -7928,6 +8708,19 @@
       "pointer",
       "thumbs-down",
       "-1"
+    ]
+  },
+  {
+    "name": "hand-thumbs-up-fill",
+    "title": "Hand thumbs up fill",
+    "categories": [
+      "Hands"
+    ],
+    "tags": [
+      "hand",
+      "pointer",
+      "thumbs-up",
+      "+1"
     ]
   },
   {
@@ -8479,6 +9272,14 @@
     ]
   },
   {
+    "name": "instagram",
+    "title": "Instagram",
+    "categories": [
+      "Social"
+    ],
+    "tags": null
+  },
+  {
     "name": "intersect",
     "title": "Intersect",
     "categories": [
@@ -8520,6 +9321,32 @@
   {
     "name": "journal-arrow-up",
     "title": "Journal arrow up",
+    "categories": [
+      "Files and folders"
+    ],
+    "tags": [
+      "file",
+      "folder",
+      "journal",
+      "notebook"
+    ]
+  },
+  {
+    "name": "journal-bookmark-fill",
+    "title": "Journal bookmark fill",
+    "categories": [
+      "Files and folders"
+    ],
+    "tags": [
+      "file",
+      "folder",
+      "journal",
+      "notebook"
+    ]
+  },
+  {
+    "name": "journal-bookmark",
+    "title": "Journal bookmark",
     "categories": [
       "Files and folders"
     ],
@@ -8835,6 +9662,30 @@
     ]
   },
   {
+    "name": "layer-backward",
+    "title": "Layer backward",
+    "categories": [
+      "Graphics"
+    ],
+    "tags": [
+      "arrange",
+      "layers",
+      "back"
+    ]
+  },
+  {
+    "name": "layer-forward",
+    "title": "Layer forward",
+    "categories": [
+      "Graphics"
+    ],
+    "tags": [
+      "arrange",
+      "layers",
+      "front"
+    ]
+  },
+  {
     "name": "layers-fill",
     "title": "Layers fill",
     "categories": [
@@ -9003,6 +9854,46 @@
     ]
   },
   {
+    "name": "lightbulb-fill",
+    "title": "Lightbulb fill",
+    "categories": [
+      "Real world"
+    ],
+    "tags": [
+      "lights"
+    ]
+  },
+  {
+    "name": "lightbulb-off-fill",
+    "title": "Lightbulb off fill",
+    "categories": [
+      "Real world"
+    ],
+    "tags": [
+      "lights"
+    ]
+  },
+  {
+    "name": "lightbulb-off",
+    "title": "Lightbulb off",
+    "categories": [
+      "Real world"
+    ],
+    "tags": [
+      "lights"
+    ]
+  },
+  {
+    "name": "lightbulb",
+    "title": "Lightbulb",
+    "categories": [
+      "Real world"
+    ],
+    "tags": [
+      "lights"
+    ]
+  },
+  {
     "name": "lightning-fill",
     "title": "Lightning fill",
     "categories": [
@@ -9051,6 +9942,14 @@
       "hyperlink",
       "href"
     ]
+  },
+  {
+    "name": "linkedin",
+    "title": "Linkedin",
+    "categories": [
+      "Social"
+    ],
+    "tags": null
   },
   {
     "name": "list-check",
@@ -9202,7 +10101,8 @@
     ],
     "tags": [
       "geography",
-      "directions"
+      "directions",
+      "location"
     ]
   },
   {
@@ -9213,7 +10113,8 @@
     ],
     "tags": [
       "geography",
-      "directions"
+      "directions",
+      "location"
     ]
   },
   {
@@ -9240,6 +10141,38 @@
       "md",
       "content",
       "writing"
+    ]
+  },
+  {
+    "name": "mask",
+    "title": "Mask",
+    "categories": [
+      "Graphics"
+    ],
+    "tags": [
+      "mask"
+    ]
+  },
+  {
+    "name": "megaphone-fill",
+    "title": "Megaphone fill",
+    "categories": [
+      "Real world"
+    ],
+    "tags": [
+      "loudspeaker",
+      "announcement"
+    ]
+  },
+  {
+    "name": "megaphone",
+    "title": "Megaphone",
+    "categories": [
+      "Real world"
+    ],
+    "tags": [
+      "loudspeaker",
+      "announcement"
     ]
   },
   {
@@ -9444,7 +10377,19 @@
     ],
     "tags": [
       "lunar",
-      "weather"
+      "weather",
+      "night"
+    ]
+  },
+  {
+    "name": "mouse-fill",
+    "title": "Mouse fill",
+    "categories": [
+      "Devices"
+    ],
+    "tags": [
+      "mice",
+      "input"
     ]
   },
   {
@@ -9459,8 +10404,30 @@
     ]
   },
   {
+    "name": "mouse2-fill",
+    "title": "Mouse2 fill",
+    "categories": [
+      "Devices"
+    ],
+    "tags": [
+      "mice",
+      "input"
+    ]
+  },
+  {
     "name": "mouse2",
     "title": "Mouse2",
+    "categories": [
+      "Devices"
+    ],
+    "tags": [
+      "mice",
+      "input"
+    ]
+  },
+  {
+    "name": "mouse3-fill",
+    "title": "Mouse3 fill",
     "categories": [
       "Devices"
     ],
@@ -9688,6 +10655,58 @@
     ]
   },
   {
+    "name": "paint-bucket",
+    "title": "Paint bucket",
+    "categories": [
+      "Graphics"
+    ],
+    "tags": [
+      "color",
+      "paint",
+      "fill",
+      "palette"
+    ]
+  },
+  {
+    "name": "palette-fill",
+    "title": "Palette fill",
+    "categories": [
+      "Graphics"
+    ],
+    "tags": [
+      "color",
+      "paint",
+      "fill",
+      "palette"
+    ]
+  },
+  {
+    "name": "palette",
+    "title": "Palette",
+    "categories": [
+      "Graphics"
+    ],
+    "tags": [
+      "color",
+      "paint",
+      "fill",
+      "palette"
+    ]
+  },
+  {
+    "name": "palette2",
+    "title": "Palette2",
+    "categories": [
+      "Graphics"
+    ],
+    "tags": [
+      "color",
+      "paint",
+      "fill",
+      "palette"
+    ]
+  },
+  {
     "name": "paperclip",
     "title": "Paperclip",
     "categories": [
@@ -9711,8 +10730,8 @@
     ]
   },
   {
-    "name": "patch-check-fll",
-    "title": "Patch check fll",
+    "name": "patch-check-fill",
+    "title": "Patch check fill",
     "categories": [
       "Badges"
     ],
@@ -9735,8 +10754,8 @@
     ]
   },
   {
-    "name": "patch-exclamation-fll",
-    "title": "Patch exclamation fll",
+    "name": "patch-exclamation-fill",
+    "title": "Patch exclamation fill",
     "categories": [
       "Badges"
     ],
@@ -9757,8 +10776,8 @@
     ]
   },
   {
-    "name": "patch-minus-fll",
-    "title": "Patch minus fll",
+    "name": "patch-minus-fill",
+    "title": "Patch minus fill",
     "categories": [
       "Badges"
     ],
@@ -9773,8 +10792,8 @@
     "tags": null
   },
   {
-    "name": "patch-plus-fll",
-    "title": "Patch plus fll",
+    "name": "patch-plus-fill",
+    "title": "Patch plus fill",
     "categories": [
       "Badges"
     ],
@@ -9789,8 +10808,8 @@
     "tags": null
   },
   {
-    "name": "patch-question-fll",
-    "title": "Patch question fll",
+    "name": "patch-question-fill",
+    "title": "Patch question fill",
     "categories": [
       "Badges"
     ],
@@ -9803,6 +10822,54 @@
       "Badges"
     ],
     "tags": null
+  },
+  {
+    "name": "pause-btn-fill",
+    "title": "Pause btn fill",
+    "categories": [
+      "Media"
+    ],
+    "tags": [
+      "audio",
+      "video",
+      "av"
+    ]
+  },
+  {
+    "name": "pause-btn",
+    "title": "Pause btn",
+    "categories": [
+      "Media"
+    ],
+    "tags": [
+      "audio",
+      "video",
+      "av"
+    ]
+  },
+  {
+    "name": "pause-circle-fill",
+    "title": "Pause circle fill",
+    "categories": [
+      "Media"
+    ],
+    "tags": [
+      "audio",
+      "video",
+      "av"
+    ]
+  },
+  {
+    "name": "pause-circle",
+    "title": "Pause circle",
+    "categories": [
+      "Media"
+    ],
+    "tags": [
+      "audio",
+      "video",
+      "av"
+    ]
   },
   {
     "name": "pause-fill",
@@ -9949,7 +11016,8 @@
     "tags": [
       "humans",
       "organization",
-      "avatar"
+      "avatar",
+      "users"
     ]
   },
   {
@@ -9961,7 +11029,8 @@
     "tags": [
       "humans",
       "organization",
-      "avatar"
+      "avatar",
+      "users"
     ]
   },
   {
@@ -9986,6 +11055,7 @@
       "human",
       "individual",
       "avatar",
+      "user",
       "badge",
       "id",
       "card"
@@ -10001,6 +11071,7 @@
       "human",
       "individual",
       "avatar",
+      "user",
       "badge",
       "id",
       "card"
@@ -10016,6 +11087,7 @@
       "human",
       "individual",
       "avatar",
+      "user",
       "crop"
     ]
   },
@@ -10029,6 +11101,7 @@
       "human",
       "individual",
       "avatar",
+      "user",
       "verified"
     ]
   },
@@ -10042,6 +11115,7 @@
       "human",
       "individual",
       "avatar",
+      "user",
       "verified"
     ]
   },
@@ -10054,7 +11128,8 @@
     "tags": [
       "humans",
       "organization",
-      "avatar"
+      "avatar",
+      "user"
     ]
   },
   {
@@ -10067,6 +11142,7 @@
       "human",
       "individual",
       "avatar",
+      "user",
       "remove",
       "delete"
     ]
@@ -10081,6 +11157,7 @@
       "human",
       "individual",
       "avatar",
+      "user",
       "remove",
       "delete"
     ]
@@ -10094,7 +11171,8 @@
     "tags": [
       "human",
       "individual",
-      "avatar"
+      "avatar",
+      "user"
     ]
   },
   {
@@ -10107,6 +11185,7 @@
       "human",
       "individual",
       "avatar",
+      "user",
       "contact",
       "list"
     ]
@@ -10121,6 +11200,7 @@
       "human",
       "individual",
       "avatar",
+      "user",
       "new",
       "add"
     ]
@@ -10135,6 +11215,7 @@
       "human",
       "individual",
       "avatar",
+      "user",
       "new",
       "add"
     ]
@@ -10148,7 +11229,8 @@
     "tags": [
       "human",
       "individual",
-      "avatar"
+      "avatar",
+      "user"
     ]
   },
   {
@@ -10161,6 +11243,7 @@
       "human",
       "individual",
       "avatar",
+      "user",
       "remove",
       "delete"
     ]
@@ -10175,6 +11258,7 @@
       "human",
       "individual",
       "avatar",
+      "user",
       "remove",
       "delete"
     ]
@@ -10188,7 +11272,8 @@
     "tags": [
       "human",
       "individual",
-      "avatar"
+      "avatar",
+      "user"
     ]
   },
   {
@@ -10223,6 +11308,12 @@
       "mobile",
       "telephone"
     ]
+  },
+  {
+    "name": "phone-vibrate-fill",
+    "title": "Phone vibrate fill",
+    "categories": null,
+    "tags": null
   },
   {
     "name": "phone-vibrate",
@@ -10272,6 +11363,50 @@
     ]
   },
   {
+    "name": "pin-angle-fill",
+    "title": "Pin angle fill",
+    "categories": [
+      "Real world"
+    ],
+    "tags": [
+      "pushpin",
+      "thumbtack"
+    ]
+  },
+  {
+    "name": "pin-angle",
+    "title": "Pin angle",
+    "categories": [
+      "Real world"
+    ],
+    "tags": [
+      "pushpin",
+      "thumbtack"
+    ]
+  },
+  {
+    "name": "pin-fill",
+    "title": "Pin fill",
+    "categories": [
+      "Real world"
+    ],
+    "tags": [
+      "pushpin",
+      "thumbtack"
+    ]
+  },
+  {
+    "name": "pin",
+    "title": "Pin",
+    "categories": [
+      "Real world"
+    ],
+    "tags": [
+      "pushpin",
+      "thumbtack"
+    ]
+  },
+  {
     "name": "pip-fill",
     "title": "Pip fill",
     "categories": [
@@ -10297,6 +11432,54 @@
       "television",
       "display",
       "nested"
+    ]
+  },
+  {
+    "name": "play-btn-fill",
+    "title": "Play btn fill",
+    "categories": [
+      "Media"
+    ],
+    "tags": [
+      "audio",
+      "video",
+      "av"
+    ]
+  },
+  {
+    "name": "play-btn",
+    "title": "Play btn",
+    "categories": [
+      "Media"
+    ],
+    "tags": [
+      "audio",
+      "video",
+      "av"
+    ]
+  },
+  {
+    "name": "play-circle-fill",
+    "title": "Play circle fill",
+    "categories": [
+      "Media"
+    ],
+    "tags": [
+      "audio",
+      "video",
+      "av"
+    ]
+  },
+  {
+    "name": "play-circle",
+    "title": "Play circle",
+    "categories": [
+      "Media"
+    ],
+    "tags": [
+      "audio",
+      "video",
+      "av"
     ]
   },
   {
@@ -10346,6 +11529,17 @@
     ]
   },
   {
+    "name": "plus-circle-dotted",
+    "title": "Plus circle dotted",
+    "categories": [
+      "Alerts, warnings, and signs"
+    ],
+    "tags": [
+      "add",
+      "new"
+    ]
+  },
+  {
     "name": "plus-circle-fill",
     "title": "Plus circle fill",
     "categories": [
@@ -10359,6 +11553,17 @@
   {
     "name": "plus-circle",
     "title": "Plus circle",
+    "categories": [
+      "Alerts, warnings, and signs"
+    ],
+    "tags": [
+      "add",
+      "new"
+    ]
+  },
+  {
+    "name": "plus-square-dotted",
+    "title": "Plus square dotted",
     "categories": [
       "Alerts, warnings, and signs"
     ],
@@ -10640,6 +11845,96 @@
     ]
   },
   {
+    "name": "record-btn-fill",
+    "title": "Record btn fill",
+    "categories": [
+      "Media"
+    ],
+    "tags": [
+      "audio",
+      "video",
+      "av"
+    ]
+  },
+  {
+    "name": "record-btn",
+    "title": "Record btn",
+    "categories": [
+      "Media"
+    ],
+    "tags": [
+      "audio",
+      "video",
+      "av"
+    ]
+  },
+  {
+    "name": "record-circle-fill",
+    "title": "Record circle fill",
+    "categories": [
+      "Media"
+    ],
+    "tags": [
+      "audio",
+      "video",
+      "av"
+    ]
+  },
+  {
+    "name": "record-circle",
+    "title": "Record circle",
+    "categories": [
+      "Media"
+    ],
+    "tags": [
+      "audio",
+      "video",
+      "av"
+    ]
+  },
+  {
+    "name": "record-fill",
+    "title": "Record fill",
+    "categories": [
+      "Media"
+    ],
+    "tags": [
+      "audio",
+      "video",
+      "av"
+    ]
+  },
+  {
+    "name": "record",
+    "title": "Record",
+    "categories": [
+      "Media"
+    ],
+    "tags": [
+      "audio",
+      "video",
+      "av"
+    ]
+  },
+  {
+    "name": "record2-fill",
+    "title": "Record2 fill",
+    "categories": [
+      "Media"
+    ],
+    "tags": [
+      "audio",
+      "video",
+      "av"
+    ]
+  },
+  {
+    "name": "record2",
+    "title": "Record2",
+    "categories": null,
+    "tags": null
+  },
+  {
     "name": "reply-all-fill",
     "title": "Reply all fill",
     "categories": [
@@ -10708,6 +12003,61 @@
     ]
   },
   {
+    "name": "rulers",
+    "title": "Rulers",
+    "categories": [
+      "Graphics"
+    ],
+    "tags": [
+      "measure",
+      "guide"
+    ]
+  },
+  {
+    "name": "save-fill",
+    "title": "Save fill",
+    "categories": [
+      "UI and keyboard"
+    ],
+    "tags": [
+      "save",
+      "floppy"
+    ]
+  },
+  {
+    "name": "save",
+    "title": "Save",
+    "categories": [
+      "UI and keyboard"
+    ],
+    "tags": [
+      "save",
+      "floppy"
+    ]
+  },
+  {
+    "name": "save2-fill",
+    "title": "Save2 fill",
+    "categories": [
+      "UI and keyboard"
+    ],
+    "tags": [
+      "save",
+      "floppy"
+    ]
+  },
+  {
+    "name": "save2",
+    "title": "Save2",
+    "categories": [
+      "UI and keyboard"
+    ],
+    "tags": [
+      "save",
+      "floppy"
+    ]
+  },
+  {
     "name": "scissors",
     "title": "Scissors",
     "categories": [
@@ -10735,7 +12085,8 @@
       "Communications"
     ],
     "tags": [
-      "magnifying-glass"
+      "magnifying-glass",
+      "look"
     ]
   },
   {
@@ -11146,6 +12497,54 @@
     ]
   },
   {
+    "name": "skip-backward-btn-fill",
+    "title": "Skip backward btn fill",
+    "categories": [
+      "Media"
+    ],
+    "tags": [
+      "audio",
+      "video",
+      "av"
+    ]
+  },
+  {
+    "name": "skip-backward-btn",
+    "title": "Skip backward btn",
+    "categories": [
+      "Media"
+    ],
+    "tags": [
+      "audio",
+      "video",
+      "av"
+    ]
+  },
+  {
+    "name": "skip-backward-circle-fill",
+    "title": "Skip backward circle fill",
+    "categories": [
+      "Media"
+    ],
+    "tags": [
+      "audio",
+      "video",
+      "av"
+    ]
+  },
+  {
+    "name": "skip-backward-circle",
+    "title": "Skip backward circle",
+    "categories": [
+      "Media"
+    ],
+    "tags": [
+      "audio",
+      "video",
+      "av"
+    ]
+  },
+  {
     "name": "skip-backward-fill",
     "title": "Skip backward fill",
     "categories": [
@@ -11160,6 +12559,54 @@
   {
     "name": "skip-backward",
     "title": "Skip backward",
+    "categories": [
+      "Media"
+    ],
+    "tags": [
+      "audio",
+      "video",
+      "av"
+    ]
+  },
+  {
+    "name": "skip-end-btn-fill",
+    "title": "Skip end btn fill",
+    "categories": [
+      "Media"
+    ],
+    "tags": [
+      "audio",
+      "video",
+      "av"
+    ]
+  },
+  {
+    "name": "skip-end-btn",
+    "title": "Skip end btn",
+    "categories": [
+      "Media"
+    ],
+    "tags": [
+      "audio",
+      "video",
+      "av"
+    ]
+  },
+  {
+    "name": "skip-end-circle-fill",
+    "title": "Skip end circle fill",
+    "categories": [
+      "Media"
+    ],
+    "tags": [
+      "audio",
+      "video",
+      "av"
+    ]
+  },
+  {
+    "name": "skip-end-circle",
+    "title": "Skip end circle",
     "categories": [
       "Media"
     ],
@@ -11194,6 +12641,54 @@
     ]
   },
   {
+    "name": "skip-forward-btn-fill",
+    "title": "Skip forward btn fill",
+    "categories": [
+      "Media"
+    ],
+    "tags": [
+      "audio",
+      "video",
+      "av"
+    ]
+  },
+  {
+    "name": "skip-forward-btn",
+    "title": "Skip forward btn",
+    "categories": [
+      "Media"
+    ],
+    "tags": [
+      "audio",
+      "video",
+      "av"
+    ]
+  },
+  {
+    "name": "skip-forward-circle-fill",
+    "title": "Skip forward circle fill",
+    "categories": [
+      "Media"
+    ],
+    "tags": [
+      "audio",
+      "video",
+      "av"
+    ]
+  },
+  {
+    "name": "skip-forward-circle",
+    "title": "Skip forward circle",
+    "categories": [
+      "Media"
+    ],
+    "tags": [
+      "audio",
+      "video",
+      "av"
+    ]
+  },
+  {
     "name": "skip-forward-fill",
     "title": "Skip forward fill",
     "categories": [
@@ -11208,6 +12703,54 @@
   {
     "name": "skip-forward",
     "title": "Skip forward",
+    "categories": [
+      "Media"
+    ],
+    "tags": [
+      "audio",
+      "video",
+      "av"
+    ]
+  },
+  {
+    "name": "skip-start-btn-fill",
+    "title": "Skip start btn fill",
+    "categories": [
+      "Media"
+    ],
+    "tags": [
+      "audio",
+      "video",
+      "av"
+    ]
+  },
+  {
+    "name": "skip-start-btn",
+    "title": "Skip start btn",
+    "categories": [
+      "Media"
+    ],
+    "tags": [
+      "audio",
+      "video",
+      "av"
+    ]
+  },
+  {
+    "name": "skip-start-circle-fill",
+    "title": "Skip start circle fill",
+    "categories": [
+      "Media"
+    ],
+    "tags": [
+      "audio",
+      "video",
+      "av"
+    ]
+  },
+  {
+    "name": "skip-start-circle",
+    "title": "Skip start circle",
     "categories": [
       "Media"
     ],
@@ -11240,6 +12783,14 @@
       "video",
       "av"
     ]
+  },
+  {
+    "name": "slack",
+    "title": "Slack",
+    "categories": [
+      "Social"
+    ],
+    "tags": null
   },
   {
     "name": "slash-circle-fill",
@@ -11503,6 +13054,30 @@
     ]
   },
   {
+    "name": "speedometer",
+    "title": "Speedometer",
+    "categories": [
+      "Real world"
+    ],
+    "tags": [
+      "speed",
+      "tachometer",
+      "dashboard"
+    ]
+  },
+  {
+    "name": "speedometer2",
+    "title": "Speedometer2",
+    "categories": [
+      "Real world"
+    ],
+    "tags": [
+      "speed",
+      "tachometer",
+      "dashboard"
+    ]
+  },
+  {
     "name": "spellcheck",
     "title": "Spellcheck",
     "categories": [
@@ -11544,6 +13119,16 @@
     "tags": [
       "shape",
       "rectangle"
+    ]
+  },
+  {
+    "name": "stack",
+    "title": "Stack",
+    "categories": [
+      "Graphics"
+    ],
+    "tags": [
+      "layers"
     ]
   },
   {
@@ -11628,6 +13213,54 @@
       "postit",
       "note",
       "sticky"
+    ]
+  },
+  {
+    "name": "stop-btn-fill",
+    "title": "Stop btn fill",
+    "categories": [
+      "Media"
+    ],
+    "tags": [
+      "audio",
+      "video",
+      "av"
+    ]
+  },
+  {
+    "name": "stop-btn",
+    "title": "Stop btn",
+    "categories": [
+      "Media"
+    ],
+    "tags": [
+      "audio",
+      "video",
+      "av"
+    ]
+  },
+  {
+    "name": "stop-circle-fill",
+    "title": "Stop circle fill",
+    "categories": [
+      "Media"
+    ],
+    "tags": [
+      "audio",
+      "video",
+      "av"
+    ]
+  },
+  {
+    "name": "stop-circle",
+    "title": "Stop circle",
+    "categories": [
+      "Media"
+    ],
+    "tags": [
+      "audio",
+      "video",
+      "av"
     ]
   },
   {
@@ -11849,6 +13482,30 @@
     ]
   },
   {
+    "name": "symmetry-horizontal",
+    "title": "Symmetry horizontal",
+    "categories": [
+      "Graphics"
+    ],
+    "tags": [
+      "align",
+      "orientation",
+      "mirror"
+    ]
+  },
+  {
+    "name": "symmetry-vertical",
+    "title": "Symmetry vertical",
+    "categories": [
+      "Graphics"
+    ],
+    "tags": [
+      "align",
+      "orientation",
+      "mirror"
+    ]
+  },
+  {
     "name": "table",
     "title": "Table",
     "categories": [
@@ -11907,7 +13564,8 @@
     "tags": [
       "price",
       "category",
-      "taxonomy"
+      "taxonomy",
+      "label"
     ]
   },
   {
@@ -11919,7 +13577,8 @@
     "tags": [
       "price",
       "category",
-      "taxonomy"
+      "taxonomy",
+      "label"
     ]
   },
   {
@@ -11931,7 +13590,8 @@
     "tags": [
       "price",
       "category",
-      "taxonomy"
+      "taxonomy",
+      "label"
     ]
   },
   {
@@ -11943,7 +13603,18 @@
     "tags": [
       "price",
       "category",
-      "taxonomy"
+      "taxonomy",
+      "label"
+    ]
+  },
+  {
+    "name": "telegram",
+    "title": "Telegram",
+    "categories": [
+      "Social"
+    ],
+    "tags": [
+      "telegram"
     ]
   },
   {
@@ -12282,7 +13953,9 @@
     "tags": [
       "kebab",
       "more",
-      "ellipsis"
+      "ellipsis",
+      "overflow",
+      "menu"
     ]
   },
   {
@@ -12292,9 +13965,11 @@
       "Controls"
     ],
     "tags": [
-      "kebab",
+      "meatballs",
       "more",
-      "ellipsis"
+      "ellipsis",
+      "overflow",
+      "menu"
     ]
   },
   {
@@ -12552,6 +14227,22 @@
     ]
   },
   {
+    "name": "twitch",
+    "title": "Twitch",
+    "categories": [
+      "Social"
+    ],
+    "tags": null
+  },
+  {
+    "name": "twitter",
+    "title": "Twitter",
+    "categories": [
+      "Social"
+    ],
+    "tags": null
+  },
+  {
     "name": "type-bold",
     "title": "Type bold",
     "categories": [
@@ -12789,6 +14480,28 @@
     ]
   },
   {
+    "name": "vinyl-fill",
+    "title": "Vinyl fill",
+    "categories": [
+      "Media"
+    ],
+    "tags": [
+      "audio",
+      "music",
+      "record"
+    ]
+  },
+  {
+    "name": "vinyl",
+    "title": "Vinyl",
+    "categories": null,
+    "tags": [
+      "audio",
+      "music",
+      "record"
+    ]
+  },
+  {
     "name": "voicemail",
     "title": "Voicemail",
     "categories": [
@@ -12969,6 +14682,16 @@
     ]
   },
   {
+    "name": "whatsapp",
+    "title": "Whatsapp",
+    "categories": [
+      "Social"
+    ],
+    "tags": [
+      "whatsapp"
+    ]
+  },
+  {
     "name": "wifi-1",
     "title": "Wifi 1",
     "categories": [
@@ -13017,6 +14740,29 @@
     ]
   },
   {
+    "name": "window-dock",
+    "title": "Window dock",
+    "categories": [
+      "Apps"
+    ],
+    "tags": [
+      "application",
+      "desktop",
+      "os"
+    ]
+  },
+  {
+    "name": "window-sidebar",
+    "title": "Window sidebar",
+    "categories": [
+      "Apps"
+    ],
+    "tags": [
+      "application",
+      "desktop"
+    ]
+  },
+  {
     "name": "window",
     "title": "Window",
     "categories": [
@@ -13047,7 +14793,10 @@
       "x",
       "delete",
       "reset",
-      "clear"
+      "clear",
+      "cancel",
+      "close",
+      "exit"
     ]
   },
   {
@@ -13060,7 +14809,10 @@
       "x",
       "delete",
       "reset",
-      "clear"
+      "clear",
+      "cancel",
+      "close",
+      "exit"
     ]
   },
   {
@@ -13073,7 +14825,10 @@
       "x",
       "delete",
       "reset",
-      "clear"
+      "clear",
+      "cancel",
+      "close",
+      "exit"
     ]
   },
   {
@@ -13086,7 +14841,10 @@
       "x",
       "delete",
       "reset",
-      "clear"
+      "clear",
+      "cancel",
+      "close",
+      "exit"
     ]
   },
   {
@@ -13099,7 +14857,10 @@
       "x",
       "delete",
       "reset",
-      "clear"
+      "clear",
+      "cancel",
+      "close",
+      "exit"
     ]
   },
   {
@@ -13112,7 +14873,10 @@
       "x",
       "delete",
       "reset",
-      "clear"
+      "clear",
+      "cancel",
+      "close",
+      "exit"
     ]
   },
   {
@@ -13125,7 +14889,10 @@
       "x",
       "delete",
       "reset",
-      "clear"
+      "clear",
+      "cancel",
+      "close",
+      "exit"
     ]
   },
   {
@@ -13138,7 +14905,10 @@
       "x",
       "delete",
       "reset",
-      "clear"
+      "clear",
+      "cancel",
+      "close",
+      "exit"
     ]
   },
   {
@@ -13151,8 +14921,19 @@
       "x",
       "delete",
       "reset",
-      "clear"
+      "clear",
+      "cancel",
+      "close",
+      "exit"
     ]
+  },
+  {
+    "name": "youtube",
+    "title": "Youtube",
+    "categories": [
+      "Social"
+    ],
+    "tags": null
   },
   {
     "name": "zoom-in",

@@ -18,8 +18,11 @@
 
 import Page from '../page.js';
 import strings from '../strings.js';
+import getTopWindow from '../util.js';
 
-const topWindowDocument = window.top.document;
+const topWindow = getTopWindow(self);
+
+const topWindowDocument = topWindow.document;
 const navbar = topWindowDocument.querySelector('iframe[name="navbar"]');
 const tabbar = topWindowDocument.querySelector('iframe[name="tabbar"]');
 
@@ -33,7 +36,7 @@ const populateTabbar = () => {
       anchor.href = `../#${iframe.name}`;
       anchor.setAttribute(
         'class',
-        "${window.top.location.hash==='#" + iframe.name + "'?'highlight':''}"
+        "${topWindow.location.hash==='#" + iframe.name + "'?'highlight':''}"
       );
       anchor.textContent = '${strings.' + iframe.name.toUpperCase() + '}';
       main.append(anchor);
@@ -122,7 +125,7 @@ Promise.all(
   navigateToHash();
 });
 
-window.top.addEventListener('popstate', navigateToHash);
+topWindow.addEventListener('popstate', navigateToHash);
 
 // eslint-disable-next-line no-unused-vars
 const page = new Page({});

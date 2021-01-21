@@ -10,13 +10,15 @@
   </head>
   <body unresolved>
     <main lang="${global.locale}">
-      ${window.top.document.querySelector('#new-page').style.display === 'block'
-      ? html`
+      ${window.parent.document.querySelector('#new-page').style.display ===
+      'block' ? html`
       <h1><a href="#" @click="${eventHandlers.back}">❮</a></h1>
       ` : html`
       <h1>${strings.TITLE}</h1>
       ` }
-      <span>${strings[window.top.location.hash.substr(1).toUpperCase()]}</span>
+      <span
+        >${strings[window.parent.location.hash.substr(1).toUpperCase()]}</span
+      >
     </main>
   </body>
 </html>
