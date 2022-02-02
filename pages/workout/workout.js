@@ -20,6 +20,13 @@ import Page from '../../page.js';
 import '../../shoelace/shoelace.esm.js';
 import '../../components/human-duration/human-duration.js';
 
+let audioCtx = null;
+
+const getAudioContext = () => {
+  audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext || window.audioContext)();
+  return audioCtx;
+};
+
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 let voices = null;
@@ -51,10 +58,6 @@ const say = (words, voice) => {
  * @param {function} callback Callback to use on end of tone
  */
 const beep = (duration, frequency, volume, type, callback) => {
-  const audioCtx = new (window.AudioContext ||
-    window.webkitAudioContext ||
-    window.audioContext)();
-
   const oscillator = audioCtx.createOscillator();
   const gainNode = audioCtx.createGain();
 
@@ -112,6 +115,7 @@ const page = new Page({
     },
 
     async start() {
+      getAudioContext();
       page.shared.paused = false;
       page.setData({ timers: (await page.getPageData('timers')).timers });
       const { sound, speak } = await page.getPageData('preferences');
