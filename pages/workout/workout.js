@@ -21,17 +21,9 @@ import '../../shoelace/shoelace.esm.js';
 import '../../components/human-duration/human-duration.js';
 
 let audioCtx = null;
-let oscillator = null;
-let gainNode = null;
 
 const createAudioContext = () => {
   audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext || window.audioContext)();
-  if (!oscillator && !gainNode) {
-    oscillator = audioCtx.createOscillator();
-    gainNode =  audioCtx.createGain();
-    oscillator.connect(gainNode);
-    gainNode.connect(audioCtx.destination);
-  }
 };
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -65,6 +57,11 @@ const say = (words, voice) => {
  * @param {function} callback Callback to use on end of tone
  */
 const beep = (duration, frequency, volume, type, callback) => {
+  const oscillator = audioCtx.createOscillator();
+  const gainNode =  audioCtx.createGain();
+  oscillator.connect(gainNode);
+  gainNode.connect(audioCtx.destination);
+  
   if (volume) {
     gainNode.gain.value = volume;
   }
