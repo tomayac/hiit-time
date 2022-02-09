@@ -56,7 +56,10 @@ const say = (words, voice) => {
  * @param {string} type Type of tone. Possible values are sine, square, sawtooth, triangle, and custom. Default is sine.
  * @param {function} callback Callback to use on end of tone
  */
-const beep = (duration, frequency, volume, type, callback) => {
+const beep = async (duration, frequency, volume, type, callback) => {
+  if (audioCtx.state === 'suspended') {
+    await audioCtx.resume();
+  }
   const oscillator = audioCtx.createOscillator();
   const gainNode =  audioCtx.createGain();
   oscillator.connect(gainNode);
